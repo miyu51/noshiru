@@ -78,3 +78,5 @@
 - 熨斗紙編集(canvas拡張ライブラリFabric.js)
 - 熨斗紙テンプレート保存(MySQL)
 - 国際化対応(i18n)
+
+https://www.figma.com/proto/wWIN5X9Gr1YQnVR70cWKaJ/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C?node-id=0-1&t=HsgITQ4HVjfM4apR-1
