@@ -79,4 +79,7 @@
 - 熨斗紙テンプレート保存(MySQL)
 - 国際化対応(i18n)
 
-https://www.figma.com/design/wWIN5X9Gr1YQnVR70cWKaJ/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C?node-id=0-1&t=Pi3Ag1Hm78GsoUR2-1
+[画面遷移図](https://www.figma.com/design/wWIN5X9Gr1YQnVR70cWKaJ/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C?node-id=0-1&t=Pi3Ag1Hm78GsoUR2-1)
+
+ER図
+[![Image from Gyazo](https://i.gyazo.com/3f9ab859e4d53a808173a6aee29f7017.png)](https://gyazo.com/3f9ab859e4d53a808173a6aee29f7017)
