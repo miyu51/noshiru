@@ -82,4 +82,4 @@
 [画面遷移図](https://www.figma.com/design/wWIN5X9Gr1YQnVR70cWKaJ/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C?node-id=0-1&t=Pi3Ag1Hm78GsoUR2-1)
 
 ER図
-[![Image from Gyazo](https://i.gyazo.com/09c06410ddcb346e8607831368388c37.png)](https://gyazo.com/09c06410ddcb346e8607831368388c37)
+[![Image from Gyazo](https://i.gyazo.com/f3c1c949bb0017aaf6a7074b8149fb18.png)](https://gyazo.com/f3c1c949bb0017aaf6a7074b8149fb18)
