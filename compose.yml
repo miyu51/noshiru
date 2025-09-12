@@ -23,6 +23,12 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      TZ: Asia/Tokyo
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      DB_HOST: db
+    command: bash -c "bundle install && rm -f tmp/pids/server.pid && ./bin/dev"
 
 volumes:
   mysql_data:
