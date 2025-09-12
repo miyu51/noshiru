@@ -1,0 +1,9 @@
+<h2 class="text-lg font-bold mt-6">関連熨斗</h2>
+<ul class="grid grid-cols-2 gap-4">
+  <% @related_noshis.each do |related| %>
+    <li class="bg-white shadow rounded p-4">
+      <%= image_tag related.image, class: "w-full h-32 object-cover mb-2" %>
+      <p class="font-semibold"><%= related.label %></p>
+    </li>
+  <% end %>
+</ul>
