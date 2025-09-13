@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
-  create_table "bookmarks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "noshi_id"
     t.datetime "created_at", null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
-  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "use_case", null: false
     t.string "religion", null: false
     t.datetime "created_at", null: false
@@ -29,7 +32,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.index ["use_case", "religion"], name: "index_categories_on_use_case_and_religion", unique: true
   end
 
-  create_table "column_synonyms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "column_synonyms", force: :cascade do |t|
     t.bigint "column_id"
     t.bigint "synonym_id"
     t.datetime "created_at", null: false
@@ -39,7 +42,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.index ["synonym_id"], name: "index_column_synonyms_on_synonym_id"
   end
 
-  create_table "columns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "columns", force: :cascade do |t|
     t.string "title", null: false
     t.string "text", null: false
     t.string "image", null: false
@@ -47,7 +50,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "noshi_columns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "noshi_columns", force: :cascade do |t|
     t.bigint "noshi_id"
     t.bigint "column_id"
     t.datetime "created_at", null: false
@@ -57,7 +60,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.index ["noshi_id"], name: "index_noshi_columns_on_noshi_id"
   end
 
-  create_table "noshi_synonyms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "noshi_synonyms", force: :cascade do |t|
     t.bigint "noshi_id"
     t.bigint "synonym_id"
     t.datetime "created_at", null: false
@@ -67,7 +70,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.index ["synonym_id"], name: "index_noshi_synonyms_on_synonym_id"
   end
 
-  create_table "noshi_tags", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "noshi_tags", force: :cascade do |t|
     t.bigint "noshi_id"
     t.bigint "tag_id"
     t.datetime "created_at", null: false
@@ -77,7 +80,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.index ["tag_id"], name: "index_noshi_tags_on_tag_id"
   end
 
-  create_table "noshis", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "noshis", force: :cascade do |t|
     t.string "label", null: false
     t.string "knot", null: false
     t.string "color", null: false
@@ -89,20 +92,21 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.index ["category_id"], name: "index_noshis_on_category_id"
   end
 
-  create_table "synonyms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "synonyms", force: :cascade do |t|
     t.string "word", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["word"], name: "index_synonyms_on_word", unique: true
   end
 
-  create_table "tags", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tags", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -112,7 +116,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_30_092523) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bookmarks", "noshis"

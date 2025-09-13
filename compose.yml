@@ -1,15 +1,15 @@
 services:  
   db:
-    image: mysql:8.0
+    image: postgres:15
     platform: linux/amd64
     environment:
       TZ: Asia/Tokyo
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
-      - mysql_data:/var/lib/mysql
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      - "3307:3306"
+      - "5432:5432"
   app:
     build:
       context: .
@@ -25,11 +25,11 @@ services:
       - db
     environment:
       TZ: Asia/Tokyo
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
       DB_HOST: db
     command: bash -c "bundle install && rm -f tmp/pids/server.pid && ./bin/dev"
 
 volumes:
-  mysql_data:
+  postgres_data:
   bundle_data:
