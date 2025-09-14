@@ -1,0 +1,40 @@
+<!-- キーワード検索 -->
+<div class="bg-[url('/assets/満月.png')] w-[300px] h-[300px] flex bg-no-repeat bg-origin-content bg-contain bg-auto bg-center items-center justify-center shadow-md rounded-full">
+  <%= search_form_for @q, url: root_path, method: :get do |f| %>
+    <div class="relative w-[95%] max-w-[280px] mx-auto">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute left-2 top-1/2 transform -translate-y-1/2 text-blue-900">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+      </svg>
+      <%= f.search_field :synonyms_word_or_label_or_category_use_case_or_category_religion_or_description_cont, placeholder: 'キーワード検索', class: "relative z-10 pl-10 pr-4 py-2 rounded-full w-full shadow-inner text-zinc-800 text-xl text-center hover:bg-zinc-100" %>
+    </div>
+    <div class="flex justify-center space-x-4 mt-6">
+      <%= f.submit "検索", class: "relative z-20 bg-zinc-800 text-white px-6 py-2 rounded-full shadow hover:bg-yellow-400" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- 詳細検索 -->
+<div class="bg-white w-full md:w-2/3 text-zinc-800 px-6 py-10 shadow-md rounded-lg">
+  <p class="text-xl font-bold mb-4">検索条件入力</p>
+  <%= search_form_for @q, url: root_path, method: :get do |f| %>
+    <div class="mb-4">
+      <%= f.label :label, "表書き", class: "block mb-1" %>
+      <%= f.search_field :label_cont, placeholder: '例: 御祝', class: "w-full border rounded px-3 py-2" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :use_case, "用途", class: "block mb-1" %>
+      <%= f.select :category_use_case_cont, @use_cases.map(&:use_case).uniq.map { |uc| [uc, uc] }, { include_blank: '用途を選択' }, class: "w-full border rounded px-3 py-2" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :religion, "宗教", class: "block mb-1" %>
+      <%= f.select :category_religion_cont, @religions.map(&:religion).uniq.map { |r| [r, r] }, { include_blank: '宗教を選択' }, class: "w-full border rounded px-3 py-2" %>
+    </div>
+
+    <div class="flex justify-center space-x-4 mt-6">
+      <%= f.submit "検索", class: "bg-zinc-800 text-white px-6 py-2 rounded-full shadow hover:bg-yellow-400" %>
+      <%= link_to "リセット", root_path, class: "bg-gray-300 text-zinc-800 px-6 py-2 rounded-full shadow hover:bg-gray-400" %>
+    </div>
+  <% end %>
+</div>
