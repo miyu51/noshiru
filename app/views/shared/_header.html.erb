@@ -1,38 +1,35 @@
 <header class="top-0 left-0 w-full z-40 bg-white">
-  <div class="flex items-center justify-between w-full px-4 py-6">
+  <div class="flex items-center justify-between w-full px-4">
 
     <!-- 左側：ロゴとキャッチコピー -->
     <div class="flex flex-col">
       <div class="mb-2">
-        <%= image_tag 'ロゴ.png', class: "w-28 sm:w-32 md:w-50 h-auto object-contain" %>
+        <%= link_to root_path do %>
+          <%= image_tag 'ロゴ.png', class: "sm:w-40 md:w-[200px] h-auto object-contain" %>
+        <% end %>
       </div>
-      <div class="text-sm text-red-300">かんたん検索で、やさしいのし文化</div>
     </div>
 
     <!-- 中央：リンク集（中画面以上で表示） -->
-    <div class="hidden md:flex space-x-6 text-red-500 text-2xl text-center">
-      <p>Noshiruについて</p>
-      <p>コラム</p>
-      <p>熨斗紙テンプレート</p>
+    <div class="hidden md:flex space-x-6 text-zinc-800 text-2xl text-center">
+      <p class="hover:underline">Noshiruについて</p>
+      <p class="hover:underline">コラム</p>
+      <p class="hover:underline">熨斗紙テンプレート</p>
     </div>
 
     <div class="flex items-center justify-end space-x-4 text-red-500 text-5xl">
       <!-- 右側：矢印アイコン -->
-      <button class="focus:outline-none w-8 h-8">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
-        </svg>
+      <button class="hover:scale-105 w-20 h-20 md:w-30 md:h-30">
+        <%= image_tag 'ログイン.png' %>
       </button>
 
       <div class="md:hidden">
         <!-- 右側：メニューアイコン（三本線） -->
-        <button class="focus:outline-none w-8 h-8">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button class="focus:outline-none w-15 h-15">
+          <%= image_tag 'ハンバーガーメニュー.png' %>
         </button>
       </div>
     </div>
   </div>
 </header>
-<div class="h-3 bg-gradient-to-b from-white to-zinc-500"></div>
+<div class="bg-gradient-to-b from-white via-zinc-100 to-transparent h-10 w-full"></div>
