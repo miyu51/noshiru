@@ -9,6 +9,10 @@ class NoshisController < ApplicationController
   end
 
   def show
+    @q = Noshi.joins(:category, :synonyms).ransack(params[:q])
+    @noshis = @q.result(distinct: true).includes(:category, :synonyms)
+    @use_cases = Category.select(:use_case).distinct.order(:use_case)
+    @religions = Category.select(:religion).distinct.order(:religion)
     @noshi = Noshi.find(params[:id])
     # @noshi.tag_idsは現在表示中の熨斗が持つタグのID一覧
     # where(tags: { id: @noshi.tag_ids })で同じタグを持つ熨斗抽出

@@ -16,9 +16,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   root 'tops#top'
 
-  resources  :noshis do
-    collection do
-      get 'search'
-    end
-  end
+  resources :noshis
 end

@@ -1,30 +1,21 @@
-<div class="text-right px-4 bg-transparent">
-  <p>検索結果件数: <%= @noshis.count %></p>
+<div class="text-center px-4 bg-transparent text-2xl pb-6">
+  <p>検索結果: <%= @noshis.count %>件</p>
 </div>
 
 <!-- 検索結果表示 -->
 <div class="max-w-5xl mx-auto px-4 bg-transparent">
   <% if @noshis.present? %>
-    <div class="space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 space-y-6">
       <% @noshis.each do |noshi| %>
         <div id="noshi-id-<%= noshi.id %>" class="shadow rounded overflow-hidden w-full">
-          <div class="flex flex-col lg:flex-row">
-            <div class="lg:w-1/2 w-full">
-              <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
+          <div class="flex flex-col">
+            <div class="p-6 flex flex-col justify-start space-y-10 text-zinc-800">
+              <div class="text-3xl">
+                <%= link_to noshi.label, noshi_path(noshi), class: "hover:underline inline-block relative z-10 " %>
+              </div>
             </div>
-            <div class="lg:w-1/2 w-full p-6 flex flex-col justify-start space-y-10 text-zinc-800">
-              <div class="text-5xl">
-                <%= link_to noshi.label, '#', class: "hover:underline" %>
-              </div>
-              <div class="text-2xl">
-                水引の種類:<%= noshi.knot %>
-              </div>
-              <div class="text-2xl">
-                文字の色:<%= noshi.color %>
-              </div>
-              <div class="text-xl">
-                <%= noshi.description %>
-              </div>
+            <div class="w-full">
+              <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ noshi1 = Noshi.create!(
   label: '御祝',
   knot: '蝶結び',
   color: '濃墨',
-  description: '一般的なお祝い全般に使われる。ただし、結婚や退院、開眼供養の場合は適さない。',
+  description: '一般的なお祝い全般に使われる。ただし、一部適さない場面もある。',
   image: '御祝.png',
   category: category_celebration
 )
@@ -58,7 +58,7 @@ noshi2 = Noshi.create!(
   label: '内祝',
   knot: '蝶結び',
   color: '濃墨',
-  description: '御祝をいただいた際の返礼に使われる。ただし、結婚祝いのお返しは結びきりになる。',
+  description: '御祝をいただいた際の返礼に使われる。ただし、一部適さない場面もある。',
   image: '内祝.png',
   category: category_celebration
 )
