@@ -1,9 +1,28 @@
+<div class="max-w-5xl mx-auto px-4 bg-transparent">
+  <div class="space-y-6">
+    <div id="noshi-id-<%= noshi.id %>" class="shadow rounded overflow-hidden w-full">
+      <div class="flex flex-col lg:flex-row">
+        <div class="lg:w-1/2 w-full">
+          <%= image_tag @noshi.image, class: "w-full h-auto object-cover" %>
+        </div>
+        <div class="lg:w-1/2 w-full p-6 flex flex-col justify-start space-y-10 text-zinc-800">
+          <div class="text-5xl">
+            <%= link_to @noshi.label, '#', class: "hover:underline" %>
+          </div>
+          <div class="text-2xl">水引の種類:<%= @noshi.knot %></div>
+          <div class="text-2xl">文字の色:<%= @noshi.color %></div>
+          <div class="text-xl"><%= @noshi.description %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <h2 class="text-lg font-bold mt-6">関連熨斗</h2>
-<ul class="grid grid-cols-2 gap-4">
+<div class="overflow-x-auto md:overflow-x-scroll md:flex md:space-x-4 space-y-4 md:space-y-0 mt-4">
   <% @related_noshis.each do |related| %>
-    <li class="bg-white shadow rounded p-4">
-      <%= image_tag related.image, class: "w-full h-32 object-cover mb-2" %>
-      <p class="font-semibold"><%= related.label %></p>
-    </li>
+    <%= link_to noshi_path(noshi), class: "block min-w-[120px] md:min-w-[160px] flex-shrink-0" do %>
+      <%= image_tag related.image, class: "w-full h-auto rounded-lg shadow-md transform duration-300" %>
+    <% end %>
   <% end %>
-</ul>
+</div>
