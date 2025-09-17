@@ -1,0 +1,37 @@
+<div class="flex flex-col lg:flex-row justify-center items-center w-full px-4 py-8 space-y-8 lg:space-y-0 lg:space-x-12 z-10">
+  <!-- 画像セクション（非表示 on モバイル） -->
+  <div class="hidden lg:block pt-3 w-1/3">
+    <!-- 画像やイラストなどをここに配置 -->
+  </div>
+
+  <div class="bg-white w-full md:w-2/3 text-white px-6 py-10 shadow-md rounded-lg">
+    <p class="text-2xl mb-4 text-center">ログイン</p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="mb-4">
+        <%= f.email_field "メールアドレス", class: "text-white w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder: "メールアドバイス" %>
+      </div>
+      <div class="mb-4">
+        <%= f.password_field "パスワード", class: "text-white w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder: "パスワード" %>
+      </div>
+      <%= f.submit "ログイン", class: "w-full bg-white text-zinc-800 py-2 rounded-md hover:bg-blue-700 transition" %>
+    <% end %>
+
+    <%# if notice %>
+      <p class="text-green-600 mt-4"><%#= notice %></p>
+    <%# elsif alert %>
+      <p class="text-red-600 mt-4"><%#= alert %></p>
+    <%# end %>
+
+    <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path, class: "text-sm text-blue-500 hover:underline mt-6 block" %>
+  </div>
+
+  <!-- サインアップカード -->
+  <div class="bg-white shadow-sm rounded-lg py-4 mt-4 text-center">
+    <p class="text-zinc-800">
+      アカウントをお持ちでない方はこちら
+      <%= link_to "新規登録", new_user_registration_path, class: "text-blue-600 hover:underline ml-1" %>
+    </p>
+  </div>
+</div>
+
+<%= render "devise/shared/links" %>

@@ -2,10 +2,15 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-$(".slide-items").slick({
-  autoplay: true, // 自動再生
-  centerMode: true,// 前後スライドを部分表示
-  centerPadding: '20%',// 両端の見切れるスライド幅
-  infinite: true,
-  arrows: true,
+document.addEventListener("turbo:load", function () {
+  const slide = document.querySelector(".slide-items");
+  if (slide && !$(slide).hasClass("slick-initialized")) {
+    $(slide).slick({
+      autoplay: true, // 自動再生
+      centerMode: true,// 前後スライドを部分表示
+      centerPadding: '20%',// 両端の見切れるスライド幅
+      infinite: true,
+      arrows: true,
+    });
+  }
 });

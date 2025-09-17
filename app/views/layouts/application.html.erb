@@ -27,17 +27,19 @@
   </head>
 
   <body class="m-plus-rounded-1c-regular overflow-x-hidden">
-    <div class="min-h-screen w-full relative">
+    <div class="min-h-screen bg-[#0f172a] w-full relative">
       <div
       class="absolute inset-0 -z-10 fixed"
       style="pointer-events: none;
-             background: radial-gradient(ellipse 80% 60% at 60% 20%, rgba(175, 109, 255, 0.50), transparent 65%),
-                         radial-gradient(ellipse 70% 60% at 20% 80%, rgba(255, 100, 180, 0.45), transparent 65%),
-                         radial-gradient(ellipse 60% 50% at 60% 65%, rgba(255, 235, 170, 0.43), transparent 62%),
-                         radial-gradient(ellipse 65% 40% at 50% 60%, rgba(120, 190, 255, 0.48), transparent 68%),
-                         linear-gradient(180deg, #f7eaff 0%, #fde2ea 100%)"></div>
+             background: radial-gradient(circle 600px at 50% 50%, rgba(59,130,246,0.3), transparent)"></div>
       <main class="flex-grow flex flex-col items-center justify-center mx-auto z-10 relative">
+        <% if user_signed_in? %>
+          <%= render 'shared/after_login_header' %>
+        <% else %>
+          <%= render 'shared/header' %>
+        <% end %>
         <%= yield %>
+        <%= render 'shared/footer' %>
       </main>
     </div>
   </body>
