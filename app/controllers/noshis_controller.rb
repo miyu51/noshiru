@@ -19,4 +19,9 @@ class NoshisController < ApplicationController
     # where.not(id: @noshi.id)で自分を除外
     @related_noshis = Noshi.joins(:tags).where(tags: { id: @noshi.tag_ids }).where.not(id: @noshi.id).group('noshis.id').order('COUNT(tags.id) DESC')
   end
+
+  def bookmarks
+    @q = current_user.bookmark_noshis.ransack(params[:q])
+    @bookmark_noshis = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+  end
 end

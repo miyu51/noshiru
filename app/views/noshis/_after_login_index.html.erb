@@ -15,6 +15,14 @@
                 </div>
               </div>
               <div class="w-full relative z-19">
+                <!-- 星アイコン -->
+                <div id="bookmark-button-for-noshi-<%= noshi.id %>">
+                  <% if current_user.bookmark?(noshi) %>
+                    <%= render 'noshis/unbookmark', noshi: noshi %>
+                  <% else %>
+                    <%= render 'noshis/bookmark', noshi: noshi %>
+                  <% end %>
+                </div>
                 <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
               </div>
             </div>

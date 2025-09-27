@@ -50,6 +50,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'letter_opener'
 end
 
 group :test do
@@ -67,3 +68,6 @@ gem "omniauth-google-oauth2"
 gem "ransack"
 gem "prawn"
 gem "jquery-rails"
+gem 'rails-i18n'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'inline_svg'
