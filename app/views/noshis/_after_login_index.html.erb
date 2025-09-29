@@ -1,6 +1,8 @@
-<div class="text-center px-4 text-2xl pb-6">
-  <p class="text-white">検索結果: <%= @noshis.count %>件</p>
-</div>
+<% if @noshis.present? %>
+  <div class="text-center px-4 text-2xl pb-6">
+    <p class="text-white">検索結果: <%= @noshis.count %>件</p>
+  </div>
+<% end %>
 
 <!-- 検索結果表示 -->
 <div class="max-w-5xl mx-auto px-4">
@@ -29,7 +31,5 @@
         </div>
       <% end %>
     </div>
-  <% else %>
-    <div class="text-white text-center text-2xl">検索条件を見直してください。</div>
   <% end %>
 </div>

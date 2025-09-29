@@ -3,9 +3,9 @@
 
     <!-- 左側：ロゴとキャッチコピー -->
     <div class="flex flex-col">
-      <div class="mb-2">
+      <div class="mb-2 w-[100px] md:w-[150px]">
         <%= link_to root_path do %>
-          <%= image_tag 'logo.png', class: "sm:w-40 md:w-[200px] h-auto object-contain" %>
+          <%= image_tag 'logo.png', class: "w-full h-auto object-contain transition-all duration-300 ease-in-out" %>
         <% end %>
       </div>
     </div>
@@ -19,17 +19,17 @@
 
     <div class="flex items-center justify-end space-x-4 text-red-500 text-5xl">
       <!-- 右側：矢印アイコン -->
-      <button class="hover:scale-105 w-20 h-20 md:w-30 md:h-30">
-        <%= image_tag 'my-page-rabbit.png' %>
-      </button>
+      <%= link_to my_page_path do %>
+        <%= image_tag 'my-page-rabbit.png', class: "hover:scale-105 w-20 h-20 md:w-30 md:h-30" %>
+      <% end %>
 
       <div class="md:hidden">
         <!-- 右側：メニューアイコン（三本線） -->
-        <button class="focus:outline-none w-15 h-15">
+        <button class="focus:outline-none w-10 h-10">
           <%= image_tag 'menu-bar.png' %>
         </button>
       </div>
     </div>
   </div>
 </header>
-<div class="bg-gradient-to-b from-white via-zinc-100 to-transparent h-10 w-full"></div>
+<div class="bg-gradient-to-b from-white via-zinc-100 to-transparent h-5 w-full"></div>

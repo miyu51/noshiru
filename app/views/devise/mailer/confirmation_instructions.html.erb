@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>※このメールは【Noshiru】にご登録いただいたメールアドレス宛に自動的に送信しています。</p>
+<p><%= @email %>様</p>
+<p>この度は【Noshiru】の会員登録にお申し込みいただきまして、誠にありがとうございます。</p>
+<p class="text-red">現在、仮登録の状態となっておりますので、下記のリンクより本登録の完了を行ってください。</p>
+<p><%= link_to 'こちらをクリックして本登録を完了する', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>本メールに身に覚えのない場合は、メールを破棄していただきますようお願いいたします。</p>
+<p>＊＊＊お問い合わせ先＊＊＊</p>
+<p>Noshiru制作者<br>
+メールアドレス:Noshiru@gmail.com</p>

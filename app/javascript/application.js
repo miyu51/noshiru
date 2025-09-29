@@ -14,3 +14,11 @@ document.addEventListener("turbo:load", function () {
     });
   }
 });
+
+function showListAndSubmit() {
+  const list = document.getElementById("hidden-list")
+  if (list) list.classList.remove("hidden")
+  
+  const form = document.getElementById("search-form")
+  if (form) form.onsubmit()
+}
