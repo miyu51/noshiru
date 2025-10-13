@@ -2,6 +2,14 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBar = document.getElementById("menu-bar");
+  const menu = document.getElementById("menu");
+  menuBar.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+});
+
 document.addEventListener("turbo:load", function () {
   const slide = document.querySelector(".slide-items");
   if (slide && !$(slide).hasClass("slick-initialized")) {
@@ -15,10 +23,34 @@ document.addEventListener("turbo:load", function () {
   }
 });
 
-function showListAndSubmit() {
-  const list = document.getElementById("hidden-list")
-  if (list) list.classList.remove("hidden")
-  
-  const form = document.getElementById("search-form")
-  if (form) form.onsubmit()
-}
+document.addEventListener('DOMContentLoaded', () => {
+
+});
+
+document.addEventListener('turbo:load', () => {
+  if (document.querySelector('.ql-toolbar')) {
+    return;
+  }
+
+  const quill = new Quill('#editor', {
+    theme: 'snow',
+    placeholder: 'ここにコラムを書く。',
+    modules: {
+      toolbar: '#toolbar-container'
+    }
+  });
+
+  const previewButton = document.getElementById('preview-button');
+  const previewArea = document.getElementById('preview-area');
+  const previewContent = document.getElementById('preview-content');
+  const hiddenInput = document.querySelector('input[name="column[text]"]');
+
+  quill.on('text-change', () => {
+    hiddenInput.value = quill.root.innerHTML;
+  });
+
+  previewButton.addEventListener('click', () => {
+    previewContent.innerHTML = quill.root.innerHTML;
+    previewArea.classList.remove('hidden');
+  });
+});

@@ -25,9 +25,15 @@
 
       <div class="md:hidden">
         <!-- 右側：メニューアイコン（三本線） -->
-        <button class="focus:outline-none w-10 h-10">
+        <button id="menu-bar" class="h-10 w-10">
           <%= image_tag 'menu-bar.png' %>
         </button>
+        <div id="menu" class="hidden bg-blue-100 flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg">
+          <p class="hover:underline">Noshiruについて</p>
+          <p class="hover:underline">コラム</p>
+          <p class="hover:underline">熨斗紙テンプレート</p>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "hover:underline" %>
+        </div>
       </div>
     </div>
   </div>

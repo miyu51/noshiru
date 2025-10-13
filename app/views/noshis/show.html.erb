@@ -9,6 +9,20 @@
           </div>
           <div class="lg:w-1/2 w-full p-6 flex flex-col justify-start space-y-10 text-zinc-800">
             <div class="text-5xl text-white"><%= @noshi.label %></div>
+            <div class="flex flex-row flex-wrap gap-4">
+              <% @noshi.categories.each do |category| %>
+                <% if category.type.present? || category.religion.present? %>
+                  <div class="flex flex-row space-x-4 bg-yellow-300 rounded-full px-4 py-2 text-zinc-700 text-xl">
+                    <% if category.type.present? %>
+                      <p>贈り物のタイプ: <%= category.type %></p>
+                    <% end %>
+                    <% if category.religion.present?  %>
+                      <p>宗教: <%= category.religion %></p>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
             <div class="text-2xl text-white">水引の種類:<%= @noshi.knot %></div>
             <div class="text-2xl text-white">文字の色:<%= @noshi.color %></div>
             <div class="text-xl text-white"><%= @noshi.description %></div>
@@ -20,10 +34,21 @@
 </div>
 
 <h2 class="text-lg mt-6 text-white">関連熨斗</h2>
-<div class="max-w-screen overflow-x-auto overflow-hidden overflow-x-scroll scroll-smooth flex space-x-4 space-y-4 space-y-4 mt-4 pb-4">
+<div class="max-w-screen overflow-x-auto overflow-hidden overflow-x-scroll scroll-smooth flex space-x-4 space-y-4 mt-4 pb-4">
   <% @related_noshis.each do |related| %>
     <%= link_to noshi_path(related), class: "block min-w-[180px] md:min-w-[220px] flex-shrink-0 relative z-10" do %>
       <%= image_tag related.image, class: "w-[300px] h-auto rounded-lg shadow-md transform duration-300 hover:scale-105" %>
     <% end %>
   <% end %>
 </div>
+
+<% if @related_columns.present? %>
+  <h2 class="text-lg mt-6 text-white">関連コラム</h2>
+  <div class="max-w-screen overflow-x-auto overflow-hidden overflow-x-scroll scroll-smooth flex space-x-4 space-y-4 mt-4 pb-4">
+    <% @related_columns.each do |related| %>
+      <%= link_to column_path(related), class: "block min-w-[180px] md:min-w-[220px] flex-shrink-0 relative z-10" do %>
+        <%= image_tag related.thumbnail, class: "w-[300px] h-auto rounded-lg shadow-md transform duration-300 hover:scale-105" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

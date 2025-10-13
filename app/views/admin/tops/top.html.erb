@@ -1,0 +1,30 @@
+<h1 class="text-white text-center text-5xl mt-10">管理者編集画面</h1>
+<div class="flex items-center justify-center mt-10">
+  <aside class="w-64 bg-gray-100 border-r p-4">
+    <nav class="space-y-4">
+      <details class="group">
+        <summary class="cursor-pointer text-2xl text-blue-700">コラム</summary>
+        <div class="ml-4 mt-2 space-y-1 flex flex-col">
+          <%= link_to '新規作成', new_admin_column_path, class: "text-xl text-gray-700 hover:underline" %>
+          <%= link_to '一覧', admin_columns_path, class: "text-xl text-gray-700 hover:underline" %>
+        </div>
+      </details>
+
+      <details class="group">
+        <summary class="cursor-pointer text-2xl text-green-700">ニュース</summary>
+        <div class="ml-4 mt-2 space-y-1 flex flex-col">
+          <%= link_to '新規作成', '#', class: "text-xl text-gray-700 hover:underline" %>
+          <%= link_to '一覧', '#', class: "text-xl text-gray-700 hover:underline" %>
+        </div>
+      </details>
+
+      <details class="group">
+        <summary class="cursor-pointer text-2xl text-purple-700">参考文献</summary>
+        <div class="ml-4 mt-2 space-y-1 flex flex-col">
+          <%= link_to '一覧', '#', class: "text-xl text-gray-700 hover:underline" %>
+          <%= link_to '編集', '#', class: "text-xl text-gray-700 hover:underline" %>
+        </div>
+      </details>
+    </nav>
+  </aside>
+</div>

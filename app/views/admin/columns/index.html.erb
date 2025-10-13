@@ -1,0 +1,18 @@
+<div class="max-w-5xl mx-auto px-4">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 space-y-6">
+    <% @columns.each do |column| %>
+      <div id="column-id-<%= column.id %>" class="shadow rounded overflow-hidden w-full">
+        <div class="flex flex-col">
+          <div class="p-6 flex flex-col space-y-10">
+            <%= link_to column_path(column) do %>
+              <div class="text-3xl text-white text-center"><%= column.title %></div>
+              <div class="w-full relative z-19">
+                <%= image_tag column.thumbnail, class: "w-full h-auto object-cover" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

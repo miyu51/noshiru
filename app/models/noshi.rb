@@ -4,10 +4,11 @@ class Noshi < ApplicationRecord
   validates :color, presence: true, length: { maximum: 20 }
   validates :description, presence: true, length: { maximum: 255 }
   validates :image, presence: true, length: { maximum: 255 }
-  belongs_to :category
   has_many :noshi_tags, dependent: :destroy
   has_many :noshi_columns
   has_many :noshi_synonyms, dependent: :destroy
+  has_many :noshi_categories, dependent: :destroy
+  has_many :categories, through: :noshi_categories
   has_many :tags, through: :noshi_tags
   has_many :columns, through: :noshi_columns
   has_many :synonyms, through: :noshi_synonyms
@@ -18,6 +19,6 @@ class Noshi < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[category synonyms bookmarks noshi_columns noshi_synonyms noshi_tags]
+    %w[categories synonyms bookmarks noshi_columns noshi_synonyms noshi_tags columns tags]
   end
 end

@@ -1,0 +1,74 @@
+<h1 class="text-white text-center text-5xl mt-10">コラム新規投稿</h1>
+
+<%= form_with model: @column, url: admin_columns_path, html: { multipart: true } do |f| %>
+<div class="mb-4 mt-10 z-10">
+  <%= f.label :title, 'タイトル', class: "text-white text-xl" %>
+  <%= f.text_field :title, class: "bg-white w-full border rounded px-3 py-2" %>
+</div>
+<div class="mb-4">
+  <%= f.label :thumbnail, 'サムネイル画像', class: "text-white text-xl" %>
+  <%= f.file_field :thumbnail, class: "bg-white w-full border rounded px-3 py-2" %>
+</div>
+<div class="mb-4">
+  <%= f.label :tag_names, '関連掲載用', class: "text-white text-xl" %>
+  <%= f.text_field :tag_names, class: "bg-white w-full border rounded px-3 py-2", placeholder: 'コンマ区切りで入力' %>
+</div>
+<div class="mb-4">
+  <%= f.label :text, '本文', class: "text-white text-xl" %>
+    <div id="standalone-container">
+      <div id="toolbar-container" class="bg-white">
+        <span class="ql-formats">
+          <select class="ql-font"></select>
+          <select class="ql-size"></select>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-bold"></button>
+          <button class="ql-italic"></button>
+          <button class="ql-underline"></button>
+          <button class="ql-strike"></button>
+        </span>
+        <span class="ql-formats">
+          <select class="ql-color"></select>
+          <select class="ql-background"></select>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-script" value="sub"></button>
+          <button class="ql-script" value="super"></button>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-header" value="1"></button>
+          <button class="ql-header" value="2"></button>
+          <button class="ql-blockquote"></button>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-list" value="ordered"></button>
+          <button class="ql-list" value="bullet"></button>
+          <button class="ql-indent" value="-1"></button>
+          <button class="ql-indent" value="+1"></button>
+        </span>
+        <span class="ql-formats">
+          <select class="ql-align"></select>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-link"></button>
+          <button class="ql-image"></button>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-clean"></button>
+        </span>
+      </div>
+      <div id="editor" class="bg-white border rounded h-screen">
+      </div>
+    <div>
+    <%= f.hidden_field :text %>
+    </div>
+    <div class="flex gap-4 mt-4">
+      <%= f.submit '投稿する', class: "bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600" %>
+      <button type="button" id="preview-button" class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition">プレビュー</button>
+    </div>
+  <% end %>
+  <div id="preview-area" class="mt-6 p-4 border rounded bg-gray-50 bg-yellow-50 shadow-inner hidden">
+    <h2 class="text-lg mb-2">プレビュー</h2>
+    <div id="preview-content" class="prose max-w-none"></div>
+  </div>
+</div>
