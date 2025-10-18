@@ -9,8 +9,4 @@
   </div>
   <%= render 'shared/search' %>
 </div>
-<% if current_user %>
-  <%= render 'noshis/after_login_index' %>
-<% else %>
-  <%= render 'noshis/index' %>
-<% end %>
+<%= render 'search' %>

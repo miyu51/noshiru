@@ -11,11 +11,12 @@
     </div>
 
     <!-- 中央：リンク集（中画面以上で表示） -->
-    <div class="hidden md:flex space-x-6 text-zinc-800 text-2xl text-center">
-      <p class="hover:underline">Noshiruについて</p>
-      <p class="hover:underline">コラム</p>
-      <p class="hover:underline">熨斗紙テンプレート</p>
-    </div>
+    <ul class="hidden md:flex space-x-6 text-zinc-800 text-2xl text-center">
+      <li class="hover:underline">Noshiruについて</li>
+      <li class="hover:underline"><%= link_to 'コラム一覧', columns_path %></li>
+      <li class="hover:underline">熨斗紙テンプレート</li>
+      <li class="hover:underline"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "hover:underline" %></li>
+    </ul>
 
     <div class="flex items-center justify-end space-x-4 text-red-500 text-5xl">
       <!-- 右側：矢印アイコン -->
@@ -25,15 +26,15 @@
 
       <div class="md:hidden">
         <!-- 右側：メニューアイコン（三本線） -->
-        <button id="menu-bar" class="h-10 w-10">
+        <button id="menu-bar" class="h-10 w-10 cursor-pointer">
           <%= image_tag 'menu-bar.png' %>
         </button>
-        <div id="menu" class="hidden bg-blue-100 flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg">
-          <p class="hover:underline">Noshiruについて</p>
-          <p class="hover:underline">コラム</p>
-          <p class="hover:underline">熨斗紙テンプレート</p>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "hover:underline" %>
-        </div>
+        <ul id="menu" class="hidden bg-blue-100 flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg">
+          <li class="hover:underline">Noshiruについて</li>
+          <li class="hover:underline"><%= link_to 'コラム一覧', columns_path %></li>
+          <li class="hover:underline">熨斗紙テンプレート</li>
+          <li class="hover:underline"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "hover:underline" %></li>
+        </ul>
       </div>
     </div>
   </div>

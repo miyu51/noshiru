@@ -1,14 +1,6 @@
 class ColumnsController < ApplicationController
-  before_action :authenticate_user!
-
   def index
-    @q = Column.joins(:tags).ransack(params[:q])
-    # includesで検索結果にも反映
-    @Columns = @q.result(distinct: true).includes(:tags).order(created_at: :desc)
-
-    #キーワード検索判定
-    keyword = :synonyms_word_or_label_or_category_use_case_or_category_religion_or_description_columns_title_or_columns_text_cont
-    @keyword_search = params[:q].present? && params[:q][keyword].present?
+    @columns = Column.all
   end
 
   def show

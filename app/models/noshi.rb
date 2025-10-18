@@ -12,7 +12,8 @@ class Noshi < ApplicationRecord
   has_many :tags, through: :noshi_tags
   has_many :columns, through: :noshi_columns
   has_many :synonyms, through: :noshi_synonyms
-  has_many :bookmarks, dependent: :destroy
+  has_many :noshi_bookmarks, dependent: :destroy
+  has_many :bookmarked_by_users, through: :noshi_bookmarks, source: :user
 
   def self.ransackable_attributes(auth_object = nil)
     %w[id label color knot image description created_at updated_at]

@@ -1,23 +1,36 @@
-<h1 class="text-3xl mb-4"><%= @column.title %></h1>
-
-<div class="prose max-w-none">
-  <%= raw @column.text %>
+<div class="container mx-auto max-w-4xl px-4 py-8">
+  <div class="text-center mb-8">
+    <small class="text-blue-100 text-sm">
+      <%= @column.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+    </small>
+    <h1 class="text-4xl font-bold text-white mt-2 mb-6 border-b border-t border-yellow-200 p-4">
+      <%= @column.title %>
+    </h1>
+  </div>
+    
+  <div class="prose prose-lg prose-invert max-w-none text-white">
+    <%= raw @column.text %>
+  </div>
 </div>
 
-<h2 class="text-lg mt-6 text-white">関連熨斗</h2>
-<div class="max-w-screen overflow-x-auto overflow-hidden overflow-x-scroll scroll-smooth flex space-x-4 space-y-4 mt-4 pb-4">
-  <% @related_noshis.each do |related| %>
-    <%= link_to noshi_path(related), class: "block min-w-[180px] md:min-w-[220px] flex-shrink-0 relative z-10" do %>
-      <%= image_tag related.image, class: "w-[300px] h-auto rounded-lg shadow-md transform duration-300 hover:scale-105" %>
+<% if @related_noshis.present? %>
+  <h2 class="text-lg mt-6 text-white">関連熨斗</h2>
+  <div class="max-w-screen overflow-x-auto overflow-hidden overflow-x-scroll scroll-smooth flex space-x-4 space-y-4 mt-4 pb-4">
+    <% @related_noshis.each do |related| %>
+      <%= link_to noshi_path(related), class: "block min-w-[180px] md:min-w-[220px] flex-shrink-0 relative z-10" do %>
+        <%= image_tag related.image, class: "w-[300px] h-auto rounded-lg shadow-md transform duration-300 hover:scale-105" %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
-<h2 class="text-lg mt-6 text-white">関連コラム</h2>
-<div class="max-w-screen overflow-x-auto overflow-hidden overflow-x-scroll scroll-smooth flex space-x-4 space-y-4 mt-4 pb-4">
-  <% @related_columns.each do |related| %>
-    <%= link_to column_path(related), class: "block min-w-[180px] md:min-w-[220px] flex-shrink-0 relative z-10" do %>
-      <%= image_tag related.thumbnail, class: "w-[300px] h-auto rounded-lg shadow-md transform duration-300 hover:scale-105" %>
+<% if @related_columns.present? %>
+  <h2 class="text-lg mt-6 text-white">関連コラム</h2>
+  <div class="max-w-screen overflow-x-auto overflow-hidden overflow-x-scroll scroll-smooth flex space-x-4 space-y-4 mt-4 pb-4">
+    <% @related_columns.each do |related| %>
+      <%= link_to column_path(related), class: "block min-w-[180px] md:min-w-[220px] flex-shrink-0 relative z-10" do %>
+        <%= image_tag related.thumbnail, class: "w-[300px] h-auto rounded-lg shadow-md transform duration-300 hover:scale-105" %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>

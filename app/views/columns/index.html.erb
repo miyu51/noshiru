@@ -4,16 +4,13 @@
       <div id="column-id-<%= column.id %>" class="shadow rounded overflow-hidden w-full">
         <div class="flex flex-col">
           <div class="p-6 flex flex-col space-y-10">
+            <%= render 'column_bookmarks/column_bookmark_button', column: column %>
             <%= link_to column_path(column) do %>
               <div class="text-3xl text-white text-center"><%= column.title %></div>
               <div class="w-full relative z-19">
                 <%= image_tag column.thumbnail, class: "w-full h-auto object-cover" %>
               </div>
             <% end %>
-            <div class="flex gap-4">
-              <%= link_to '編集する', edit_admin_column_path(column), class: "inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" %>
-              <%= button_to '削除する', admin_column_path(column), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" %>
-            </div>
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@
           <div id="noshi-id-<%= noshi.id %>" class="shadow rounded overflow-hidden w-full">
             <div class="flex flex-col">
               <div class="p-6 flex flex-col space-y-10">
+                <%= render 'noshi_bookmarks/noshi_bookmark_button', noshi: noshi %>
                 <%= link_to noshi_path(noshi) do %>
                   <div class="text-3xl text-white text-center"><%= noshi.label %></div>
                   <div class="w-full relative z-19">
@@ -30,16 +31,16 @@
 
 <% if @keyword_search %>
   <div class="text-center px-4 text-2xl pb-6">
-    <p class="text-white">キーワード検索結果: 熨斗 <%= @noshis.count %>件/ コラム <%= @columns.count %>件</p>
+    <p class="text-white">キーワード検索結果: 熨斗 <%= @noshis&.count || 0 %>件/ コラム <%= @columns&.count || 0 %>件</p>
   </div>
 
-  <% max = [@noshis.size, @columns.size].max %>
+  <% max = [@noshis&.size || 0, @columns&.size || 0].max %>
   <div class="max-w-6xl mx-auto px-4">
     <% max.times do |i| %>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-
         <div class="md:border-r md:pr-6">
           <% if noshi = @noshis[i] %>
+            <%= render 'noshi_bookmarks/noshi_bookmark_button', noshi: noshi %>
             <%= link_to noshi_path(noshi), class: "block hover:shadow-lg transition-shadow duration-300" do %>
               <div class="p-4 rounded shadow">
                 <div class="text-xl mb-2 text-center text-white"><%= noshi.label %></div>
@@ -48,9 +49,9 @@
             <% end %>
           <% end %>
         </div>
-
         <div class="md:pl-6">
           <% if column = @columns[i] %>
+            <%= render 'column_bookmarks/column_bookmark_button', column: column %>
             <%= link_to column_path(column), class: "block hover:shadow-lg transition-shadow duration-300" do %>
               <div class="p-4 rounded shadow">
                 <div class="text-xl text-center text-white mb-2"><%= column.title %></div>

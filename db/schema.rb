@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_09_071921) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_16_132727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,16 +42,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_09_071921) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookmarks", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "noshi_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["noshi_id"], name: "index_bookmarks_on_noshi_id"
-    t.index ["user_id", "noshi_id"], name: "index_bookmarks_on_user_id_and_noshi_id", unique: true
-    t.index ["user_id"], name: "index_bookmarks_on_user_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "use_case"
     t.string "religion"
@@ -59,6 +49,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_09_071921) do
     t.datetime "updated_at", null: false
     t.string "type"
     t.index ["use_case", "religion"], name: "index_categories_on_use_case_and_religion", unique: true
+  end
+
+  create_table "column_bookmarks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "column_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["column_id"], name: "index_column_bookmarks_on_column_id"
+    t.index ["user_id", "column_id"], name: "index_column_bookmarks_on_user_id_and_column_id", unique: true
+    t.index ["user_id"], name: "index_column_bookmarks_on_user_id"
   end
 
   create_table "column_tags", force: :cascade do |t|
@@ -74,9 +74,18 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_09_071921) do
   create_table "columns", force: :cascade do |t|
     t.string "title", null: false
     t.text "text", null: false
-    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "noshi_bookmarks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "noshi_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["noshi_id"], name: "index_noshi_bookmarks_on_noshi_id"
+    t.index ["user_id", "noshi_id"], name: "index_noshi_bookmarks_on_user_id_and_noshi_id", unique: true
+    t.index ["user_id"], name: "index_noshi_bookmarks_on_user_id"
   end
 
   create_table "noshi_categories", force: :cascade do |t|
@@ -168,10 +177,12 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_09_071921) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookmarks", "noshis"
-  add_foreign_key "bookmarks", "users"
+  add_foreign_key "column_bookmarks", "columns"
+  add_foreign_key "column_bookmarks", "users"
   add_foreign_key "column_tags", "columns"
   add_foreign_key "column_tags", "tags"
+  add_foreign_key "noshi_bookmarks", "noshis"
+  add_foreign_key "noshi_bookmarks", "users"
   add_foreign_key "noshi_categories", "categories"
   add_foreign_key "noshi_categories", "noshis"
   add_foreign_key "noshi_columns", "columns"

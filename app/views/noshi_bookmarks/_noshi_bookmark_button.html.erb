@@ -3,9 +3,9 @@
   <div class="absolute top-2 left-2">
     <div id="bookmark-button-for-noshi-<%= noshi.id %>">
       <% if current_user.noshi_bookmark?(noshi) %>
-        <%= render 'bookmarks/noshi_unbookmark', noshi: noshi %>
+        <%= render 'noshi_bookmarks/noshi_unbookmark', noshi: noshi %>
       <% else %>
-        <%= render 'bookmarks/noshi_bookmark', noshi: noshi %>
+        <%= render 'noshi_bookmarks/noshi_bookmark', noshi: noshi %>
       <% end %>
     </div>
   </div>

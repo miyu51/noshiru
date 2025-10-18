@@ -3,9 +3,9 @@
   <div class="absolute top-2 left-2">
     <div id="bookmark-button-for-column-<%= column.id %>">
       <% if current_user.column_bookmark?(column) %>
-        <%= render 'bookmarks/column_unbookmark', column: column %>
+        <%= render 'column_bookmarks/column_unbookmark', column: column %>
       <% else %>
-        <%= render 'bookmarks/column_bookmark', column: column %>
+        <%= render 'column_bookmarks/column_bookmark', column: column %>
       <% end %>
     </div>
   </div>

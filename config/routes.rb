@@ -15,16 +15,16 @@ Rails.application.routes.draw do
   root 'tops#top'
 
   resources :noshis, only: %i[index show] do
-    resources :bookmarks, only: %i[create destroy]
+    resource :noshi_bookmarks, only: %i[create show destroy]
     collection do
-      get :bookmarks
+      get :bookmarks, to: 'noshi_bookmarks#show'
     end
   end
 
   resources :columns, only: %i[index show] do
-    resources :bookmarks, only: %i[create destroy]
+    resource :column_bookmarks, only: %i[create show destroy]
     collection do
-      get :bookmarks
+      get :bookmarks, to: 'column_bookmarks#show'
     end
   end
 
@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  
+
   namespace :admin do
     resources :columns, only: %i[new create index show edit update destroy]
     root "tops#top"

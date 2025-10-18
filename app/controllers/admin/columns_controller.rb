@@ -14,13 +14,17 @@ class Admin::ColumnsController < Admin::BaseController
   end
 
   def create
+    Rails.logger.debug "=== DEBUG START ==="
+    Rails.logger.debug "Params: #{params.inspect}"
+    Rails.logger.debug "Column params: #{column_params.inspect}"
+
     @column = Column.new(column_params)
 
+    Rails.logger.debug "Column valid?: #{@column.valid?}"
+    Rails.logger.debug "Column errors: #{@column.errors.full_messages}" unless @column.valid?
+    Rails.logger.debug "=== DEBUG END ==="
+
     if @column.save
-      if params[:tag_names].present?
-        tags = Tag.where(name: params[:tag_names])
-        @column.tags << tags
-      end
       respond_to do |f|
         f.turbo_stream { render turbo_stream: turbo_stream.replace('main', partial: 'admin/columns/show', locals: { column: @column }) }
         f.html { redirect_to admin_columns_path, notice: 'コラムを投稿しました。' }
@@ -56,7 +60,7 @@ class Admin::ColumnsController < Admin::BaseController
   private
 
   def column_params
-    params.require(:column).permit(:title, :text, :thumbnail)
+    params.require(:column).permit(:title, :text, :thumbnail, tag_ids: [])
   end
 
   def set_column

@@ -1,8 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :bookmarks, dependent: :destroy
-  has_many :bookmark_noshis, through: :bookmarks, source: :noshi
+  has_many :noshi_bookmarks, dependent: :destroy
+  has_many :bookmark_noshis, through: :noshi_bookmarks, source: :noshi
+  has_many :column_bookmarks, dependent: :destroy
+  has_many :bookmark_columns, through: :column_bookmarks, source: :column
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[google_oauth2]
