@@ -2,12 +2,15 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", function () {
   const menuBar = document.getElementById("menu-bar");
   const menu = document.getElementById("menu");
+  if (menuBar && menu && !menuBar.dataset.listenerAttached) {
   menuBar.addEventListener("click", () => {
     menu.classList.toggle("hidden");
   });
+  menuBar.dataset.listenerAttached = "true";
+  }
 });
 
 document.addEventListener("turbo:load", function () {

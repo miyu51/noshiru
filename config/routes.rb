@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "references/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     resource :noshi_bookmarks, only: %i[create show destroy]
     collection do
       get :bookmarks, to: 'noshi_bookmarks#show'
+      get :require_login, to: 'noshi_bookmarks#require_login'
     end
   end
 
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
     resource :column_bookmarks, only: %i[create show destroy]
     collection do
       get :bookmarks, to: 'column_bookmarks#show'
+      get :require_login, to: 'column_bookmarks#require_login'
     end
   end
 
@@ -50,4 +53,6 @@ Rails.application.routes.draw do
     resources :columns, only: %i[new create index show edit update destroy]
     root "tops#top"
   end
+
+  resources :references, only: %i[index]
 end

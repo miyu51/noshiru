@@ -1,0 +1,32 @@
+<div class="max-w-5xl mx-auto px-4 py-6 space-y-10">
+  <!-- 本の参考文献 -->
+  <section>
+    <p class="text-xl mb-4 text-white">本の参考文献</p>
+    <% @references.select { |ref| ref.publisher.present? }.each do |ref| %>
+      <div class="border-l-4 border-blue-200 pl-4 mb-4">
+        <p class="text-white"><%= ref.title %></p>
+        <p class="text-white">
+          著者：<%= ref.author %><br>
+          出版社：<%= ref.publisher %><br>
+          出版年：<%= ref.published_on&.strftime('%Y') %><br>
+        </p>
+      </div>
+    <% end %>
+  </section>
+
+  <!-- ウェブの参考文献 -->
+  <section>
+    <p class="text-xl mb-4 text-white">ネットの参考文献</p>
+    <% @references.select { |ref| ref.publisher.blank? }.each do |ref| %>
+      <div class="border-l-4 border-yellow-200 pl-4 mb-4">
+        <%= link_to ref.title, ref.url, target: "_blank", rel: "noopener", class: "text-white cursor-pointer hover:underline" %>
+        <P class="text-white">
+          サイト名：<%= ref.site_name %><br>
+          著者：<%= ref.author %><br>
+          公開日または更新日：<%= ref.published_on&.strftime('%Y') %><br>
+          参照日：<%= ref.accessed_on&.strftime('%Y') %>
+        </p>
+      </div>
+    <% end %>
+  </section>
+</div>

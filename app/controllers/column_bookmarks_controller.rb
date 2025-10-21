@@ -1,5 +1,10 @@
 class ColumnBookmarksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :show, :destroy]
+
+  def require_login
+    flash[:alert] = 'ブックマーク機能はログイン後にご利用いただけます。'
+    redirect_to new_user_session_path
+  end
 
   def create
     @column = Column.find(params[:column_id])
@@ -8,7 +13,7 @@ class ColumnBookmarksController < ApplicationController
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace(
           "bookmark-button-for-column-#{@column.id}",
-          partial: "bookmarks/column_unbookmark",
+          partial: "column_bookmarks/column_bookmark_button",
           locals: {column: @column }
         )
       end
@@ -20,14 +25,13 @@ class ColumnBookmarksController < ApplicationController
   end
 
   def destroy
-    @bookmark = current_user.column_bookmarks.find(params[:id])
-    @column = @bookmark.column
-    @bookmark.destroy
+    @column = Column.find(params[:column_id])
+    current_user.column_unbookmark(@column)
     respond_to do |format|
       format.turbo_stream do
       render turbo_stream: turbo_stream.replace(
         "bookmark-button-for-column-#{@column.id}",
-        partial: "bookmarks/column_bookmark",
+        partial: "column_bookmarks/column_bookmark_button",
         locals: { column: @column }
       )
       end
