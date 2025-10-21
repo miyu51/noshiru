@@ -1,0 +1,63 @@
+ja:
+  devise:
+    confirmations:
+      confirmed: "本登録が完了しました。"
+      send_instructions: "認証用メールを送信しました。"
+      send_paranoid_instructions: "ご登録のメールアドレスに、認証手続きのご案内をお送りしております。ご確認ください。"
+    failure:
+      already_authenticated: "現在ログイン中です。"
+      inactive: "このアカウントは現在ご利用いただけません。"
+      invalid: "%{authentication_keys}またはパスワードが正しくありません。"
+      locked: "このアカウントは現在ロックされています。"
+      last_attempt: "You have one more attempt before your account is locked."
+      not_found_in_database: "%{authentication_keys}またはパスワードが正しくありません。"
+      timeout: "セッションの有効期限が切れました。続行するには再度ログインしてください。"
+      unauthenticated: "この操作を続けるには、ログインまたは新規登録が必要です。"
+      unconfirmed: "本登録が完了しておりません。認証用メールをご確認ください。"
+    mailer:
+      confirmation_instructions: 
+        subject: "本登録のお願い"
+      reset_password_instructions:
+        subject: "パスワード再設定のご案内"
+      unlock_instructions:
+        subject: "アカウントロック解除のご案内"
+      email_changed:
+        subject: "メールアドレス変更のご案内"
+      password_change:
+        subject: "パスワード変更のご案内"
+    omniauth_callbacks:
+      failure: "%{kind}での認証に失敗しました。原因:\"%{reason}\""
+      success: "%{kind}アカウントでログインしました。"
+    passwords:
+      no_token: "パスワード再設定メールからアクセスしてください。"
+      send_instructions: "パスワード再設定のご案内をお送りしました。"
+      send_paranoid_instructions: "パスワード再設定のご案内をお送りしました。"
+      updated: "パスワードの変更が完了しました。"
+      updated_not_active: "パスワードの変更はまだ完了しておりません。認証メールをご確認ください。"
+    registrations:
+      destroyed: "アカウントが削除されました。またのご利用をお待ちしております。"
+      signed_up: "本登録が完了しました。"
+      signed_up_but_inactive: "本登録が完了しておりません。認証用メールをご確認ください。"
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "本登録が完了しておりません。認証用メールをご確認ください。"
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
+      updated: "アカウント情報が更新されました"
+      updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "すでにログアウト済みです。"
+    unlocks:
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  errors:
+    messages:
+      already_confirmed: "ご登録のメールアドレスで、すでにアカウントが存在します。"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"

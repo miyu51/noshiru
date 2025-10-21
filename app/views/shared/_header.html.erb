@@ -3,31 +3,38 @@
 
     <!-- 左側：ロゴとキャッチコピー -->
     <div class="flex flex-col">
-      <div class="mb-2">
+      <div class="mb-2 w-[80px] md:w-[200px]">
         <%= link_to root_path do %>
-          <%= image_tag 'ロゴ.png', class: "sm:w-40 md:w-[200px] h-auto object-contain" %>
+          <%= image_tag 'logo.png', class: "w-full h-auto object-contain transition-all duration-300 ease-in-out" %>
         <% end %>
       </div>
     </div>
 
     <!-- 中央：リンク集（中画面以上で表示） -->
-    <div class="hidden md:flex space-x-6 text-zinc-800 text-2xl text-center">
-      <p class="hover:underline">Noshiruについて</p>
-      <p class="hover:underline">コラム</p>
-      <p class="hover:underline">熨斗紙テンプレート</p>
-    </div>
+    <ul class="hidden md:flex space-x-6 text-zinc-800 text-2xl text-center">
+      <li class="hover:underline">Noshiruについて</li>
+      <li class="hover:underline"><%= link_to 'コラム一覧', columns_path %></li>
+      <li class="hover:underline">熨斗紙テンプレート</li>
+    </ul>
 
     <div class="flex items-center justify-end space-x-4 text-red-500 text-5xl">
       <!-- 右側：矢印アイコン -->
       <button class="hover:scale-105 w-20 h-20 md:w-30 md:h-30">
-        <%= image_tag 'ログイン.png' %>
+        <%= link_to new_user_session_path do %>
+          <%= image_tag 'login-rabbit.png' %>
+        <% end %>
       </button>
 
       <div class="md:hidden">
         <!-- 右側：メニューアイコン（三本線） -->
-        <button class="focus:outline-none w-15 h-15">
-          <%= image_tag 'ハンバーガーメニュー.png' %>
+        <button id="menu-bar" class="h-10 w-10 cursor-pointer">
+          <%= image_tag 'menu-bar.png' %>
         </button>
+        <ul id="menu" class="hidden flex flex-col space-y-4 mt-4 text-lg text-zinc-700">
+          <li class="hover:underline">Noshiruについて</li>
+          <li class="hover:underline"><%= link_to 'コラム一覧', columns_path %></li>
+          <li class="hover:underline">熨斗紙テンプレート</li>
+        </ul>
       </div>
     </div>
   </div>
