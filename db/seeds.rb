@@ -39,6 +39,16 @@ Reference.create!(
 )
 
 Reference.create!(
+  title: '贈り物に添える言葉、表書きの由来とは',
+  site_name: '山本山オンラインショップ',
+  author: '株式会社山本山',
+  author_furigana: 'かぶしきがいしゃやまもとやま',
+  published_on: Date.new(2024, 12, 13),
+  accessed_on: Date.new(2025, 10, 21),
+  url: 'https://yamamotoyama.co.jp/blogs/column/reading209?srsltid=AfmBOoov5M_XMTpwbEXSsE6XdBeJ0wW-zBwE45etRlipfng0XjWryFxK'
+)
+
+Reference.create!(
   title: '贈り物のマナー、熨斗と水引を学ぼう',
   site_name: '古希祝い専門店 七〇屋',
   author: '株式会社十八',
@@ -94,4 +104,32 @@ Reference.create!(
   published_on: Date.new(2025, 01, 16),
   accessed_on: Date.new(2025, 10, 20),
   url: 'https://www.osohshiki.jp/column/article/1153/'
+)
+
+Reference.create!(
+  title: '水引の意味とは？色の意味や本数、なりたちについても解説！',
+  site_name: 'AminaFlyers',
+  author: '株式会社アミナコレクション',
+  author_furigana: 'かぶしきがいしゃあみなこれくしょん',
+  published_on: Date.new(2025, 01, 07),
+  accessed_on: Date.new(2025, 10, 21),
+  url: 'https://aminaflyers.amina-co.jp/list/detail/1106'
+)
+
+Reference.create!(
+  title: '多くの場面で役立つのし紙とかけ紙のマナー',
+  site_name: '三越伊勢丹グループの贈り物のしきたりとマナー',
+  author: '三越伊勢丹ホールディングス',
+  author_furigana: 'みつこしいせたんほーるでぃんぐす',
+  accessed_on: Date.new(2025, 10, 21),
+  url: 'https://www.mistore.jp/gift/manner/knowledge/noshi_mizuhiki/article/noshi_manner.html#:~:text=%E3%80%8C%E3%81%AE%E3%81%97%E3%80%8D%E3%81%A8%E3%81%AF%E3%80%81,%E3%82%92%E7%B5%90%E3%82%93%E3%81%A7%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82'
+)
+
+Reference.create!(
+  title: 'HOME',
+  site_name: '水引屋・大橋丹治',
+  author: '大橋丹治株式会社',
+  author_furigana: 'おおはしたんじかぶしきがいしゃ',
+  accessed_on: Date.new(2025, 10, 21),
+  url: 'https://www.oohashitanji.jp/'
 )
