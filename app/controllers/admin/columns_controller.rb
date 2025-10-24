@@ -45,9 +45,16 @@ class Admin::ColumnsController < Admin::BaseController
   def edit; end
 
   def update
+    Rails.logger.debug "=== UPDATE DEBUG START ==="
+    Rails.logger.debug "Params: #{params.inspect}"
+    Rails.logger.debug "Column params: #{column_params.inspect}"
+    Rails.logger.debug "Column before update: #{@column.attributes.inspect}"
+
     if @column.update(column_params)
+      Rails.logger.debug "Column after update: #{@column.attributes.inspect}"
       redirect_to admin_columns_path, notice: 'コラムを更新しました。'
     else
+      Rails.logger.debug "Update failed: #{@column.errors.full_messages}"
       render :edit, status: :unprocessable_entity
     end
   end

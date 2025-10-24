@@ -52,6 +52,12 @@ document.addEventListener('turbo:load', () => {
     hiddenInput.value = quill.root.innerHTML;
   });
 
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", () => {
+    hiddenInput.value = quill.root.innerHTML;
+  });
+
   previewButton.addEventListener('click', () => {
     previewContent.innerHTML = quill.root.innerHTML;
     previewArea.classList.remove('hidden');

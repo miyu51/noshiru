@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto px-4 py-6 space-y-10">
+<div class="text-left max-w-5xl mx-auto px-4 py-6 space-y-10 p-10">
   <!-- 本の参考文献 -->
   <section>
     <p class="text-xl mb-4 text-white">本の参考文献</p>
@@ -22,9 +22,9 @@
         <%= link_to ref.title, ref.url, target: "_blank", rel: "noopener", class: "text-white cursor-pointer hover:underline" %>
         <P class="text-white">
           サイト名：<%= ref.site_name %><br>
-          著者：<%= ref.author %><br>
+          管理者：<%= ref.author %><br>
           公開日または更新日：<%= ref.published_on&.strftime('%Y') %><br>
-          参照日：<%= ref.accessed_on&.strftime('%Y') %>
+          参照日：<%= ref.accessed_on&.strftime('%Y年%m月%d日') %>
         </p>
       </div>
     <% end %>

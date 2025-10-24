@@ -1,6 +1,6 @@
 <h1 class="text-white text-center text-5xl mt-10">コラム編集</h1>
 
-<%= form_with model: @column, url: admin_columns_path, local: true, html: { multipart: true } do |f| %>
+<%= form_with model: @column, url: [:admin, @column], local: true, html: { multipart: true } do |f| %>
   <% if @column.errors.any? %>
     <div class="alert alert-danger">
       <ul class="mb-0">

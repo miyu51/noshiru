@@ -118,6 +118,8 @@
 
 .prose h1 {
   font-size: 2.75rem; /* Tailwindの text-5xl 相当 */
+  border-bottom: 2px solid white;
+  padding-bottom: o.5em;
 }
 
 .prose h2 {
