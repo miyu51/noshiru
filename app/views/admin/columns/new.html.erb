@@ -15,10 +15,8 @@
   <%= f.text_field :title, class: "text-white w-full border rounded px-3 py-2" %>
 </div>
 <div class="mb-4">
-  <label class="text-white text-xl" >サムネイル画像</label>
-  <button type="button" onclick="uploadThumbnail()" class="bg-white px-3 py-2 rounded">画像を選ぶ</button>
-  <%= f.file_field :thumbnail, id: "thumbnail-url-field" %>
-  <img id="thumbnail-preview" class="mt-4 w-48 rounded shadow hidden" />
+  <%= f.label :thumbnail, 'サムネイル画像', class: "text-white text-xl" %>
+  <%= f.file_field :thumbnail %>
 </div>
 <div class="mb-4">
   <%= f.label :tags, '関連タグ', class: "text-white text-xl" %>
@@ -82,8 +80,4 @@
       <button type="button" id="preview-button" class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition">プレビュー</button>
     </div>
   <% end %>
-  <div id="preview-area" class="mt-6 p-4 border rounded bg-gray-50 bg-yellow-50 shadow-inner hidden">
-    <h2 class="text-lg mb-2">プレビュー</h2>
-    <div id="preview-content" class="prose max-w-none"></div>
-  </div>
 </div>

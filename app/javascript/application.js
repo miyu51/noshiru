@@ -30,29 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-const input = document.createElement('input');
-input.setAttribute('type', 'file');
-input.setAttribute('accept', 'image/*');
-input.click();
-
-input.onchange = () => {
-  const file = input.files[0];
-  const formData = new FormData();
-  formData.append('file', file);
-
-  fetch('/uploads/image', {
-    method: 'POST',
-    body: formData
-  })
-  .then(res => res.json())
-  .then(data => {
-    document.querySelector('#thumbnail-url-field').value = data.url;
-    const preview = document.querySelector('#thumbnail-preview');
-    preview.src = data.url;
-    preview.classList.remove('hidden');
-  });
-};
-
 document.addEventListener('turbo:load', () => {
   if (document.querySelector('.ql-toolbar')) {
     return;
@@ -66,9 +43,6 @@ document.addEventListener('turbo:load', () => {
     }
   });
 
-  const previewButton = document.getElementById('preview-button');
-  const previewArea = document.getElementById('preview-area');
-  const previewContent = document.getElementById('preview-content');
   const hiddenInput = document.querySelector('input[name="column[text]"]');
 
   quill.on('text-change', () => {
@@ -79,10 +53,5 @@ document.addEventListener('turbo:load', () => {
 
   form.addEventListener("submit", () => {
     hiddenInput.value = quill.root.innerHTML;
-  });
-
-  previewButton.addEventListener('click', () => {
-    previewContent.innerHTML = quill.root.innerHTML;
-    previewArea.classList.remove('hidden');
   });
 });

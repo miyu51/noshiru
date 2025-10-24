@@ -51,6 +51,4 @@ test:
 #
 production:
   <<: *default
-  database: noshiru_production
-  username: postgresql
-  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
