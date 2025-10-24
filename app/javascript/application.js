@@ -30,6 +30,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+const input = document.createElement('input');
+input.setAttribute('type', 'file');
+input.setAttribute('accept', 'image/*');
+input.click();
+
+input.onchange = () => {
+  const file = input.files[0];
+  const formData = new FormData();
+  formData.append('file', file);
+
+  fetch('/uploads/image', {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.querySelector('#thumbnail-url-field').value = data.url;
+    const preview = document.querySelector('#thumbnail-preview');
+    preview.src = data.url;
+    preview.classList.remove('hidden');
+  });
+};
+
 document.addEventListener('turbo:load', () => {
   if (document.querySelector('.ql-toolbar')) {
     return;

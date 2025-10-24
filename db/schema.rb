@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_19_030231) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_24_123621) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_19_030231) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "noshi_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["noshi_id"], name: "index_bookmarks_on_noshi_id"
+    t.index ["user_id", "noshi_id"], name: "index_bookmarks_on_user_id_and_noshi_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "use_case"
     t.string "religion"
@@ -61,41 +71,23 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_19_030231) do
     t.index ["user_id"], name: "index_column_bookmarks_on_user_id"
   end
 
-  create_table "column_tags", force: :cascade do |t|
+  create_table "column_synonyms", force: :cascade do |t|
     t.bigint "column_id"
-    t.bigint "tag_id"
+    t.bigint "synonym_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["column_id", "tag_id"], name: "index_column_tags_on_column_id_and_tag_id", unique: true
-    t.index ["column_id"], name: "index_column_tags_on_column_id"
-    t.index ["tag_id"], name: "index_column_tags_on_tag_id"
+    t.index ["column_id", "synonym_id"], name: "index_column_synonyms_on_column_id_and_synonym_id", unique: true
+    t.index ["column_id"], name: "index_column_synonyms_on_column_id"
+    t.index ["synonym_id"], name: "index_column_synonyms_on_synonym_id"
   end
 
   create_table "columns", force: :cascade do |t|
     t.string "title", null: false
-    t.text "text", null: false
+    t.string "text", null: false
+    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "noshi_bookmarks", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "noshi_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["noshi_id"], name: "index_noshi_bookmarks_on_noshi_id"
-    t.index ["user_id", "noshi_id"], name: "index_noshi_bookmarks_on_user_id_and_noshi_id", unique: true
-    t.index ["user_id"], name: "index_noshi_bookmarks_on_user_id"
-  end
-
-  create_table "noshi_categories", force: :cascade do |t|
-    t.bigint "noshi_id"
-    t.bigint "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_noshi_categories_on_category_id"
-    t.index ["noshi_id", "category_id"], name: "index_noshi_categories_on_noshi_id_and_category_id", unique: true
-    t.index ["noshi_id"], name: "index_noshi_categories_on_noshi_id"
+    t.string "thumbnail"
   end
 
   create_table "noshi_columns", force: :cascade do |t|
@@ -190,14 +182,12 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_19_030231) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookmarks", "noshis"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "column_bookmarks", "columns"
   add_foreign_key "column_bookmarks", "users"
-  add_foreign_key "column_tags", "columns"
-  add_foreign_key "column_tags", "tags"
-  add_foreign_key "noshi_bookmarks", "noshis"
-  add_foreign_key "noshi_bookmarks", "users"
-  add_foreign_key "noshi_categories", "categories"
-  add_foreign_key "noshi_categories", "noshis"
+  add_foreign_key "column_synonyms", "columns"
+  add_foreign_key "column_synonyms", "synonyms"
   add_foreign_key "noshi_columns", "columns"
   add_foreign_key "noshi_columns", "noshis"
   add_foreign_key "noshi_synonyms", "noshis"
