@@ -72,3 +72,4 @@ gem "jquery-rails"
 gem 'rails-i18n'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'inline_svg'
+gem 'aws-sdk-s3', require: false
