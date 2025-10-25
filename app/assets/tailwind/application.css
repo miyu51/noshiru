@@ -130,6 +130,6 @@
   font-size: 1.8rem;
 }
 
-.bg-noon-rabbit {
-  background-image: asset-url('moon-rabbit.svg');
+.bg-moon-rabbit {
+  background-image: url('/assets/moon-rabbit.svg');
 }
