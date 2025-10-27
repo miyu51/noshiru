@@ -102,4 +102,17 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.active_storage.service = :r2
+  config.active_storage.variant_processor = :mini_magick
+  Rails.application.config.to_prepare do
+    if Rails.env.production?
+      ActiveStorage::Service::S3Service.class_eval do
+        private
+
+        def upload_with_multipart(key, io, checksum: nil, **upload_options)
+          clean_options = upload_options.except(:content_md5, :checksum_algorithm, :checksum_crc32, :checksum_crc32c, :checksum_sha1, :checksum_sha256)
+          super(key, io, checksum: nil, **clean_options)
+        end
+      end
+    end
+  end
 end
