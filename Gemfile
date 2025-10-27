@@ -70,6 +70,5 @@ gem "ransack"
 gem "prawn"
 gem "jquery-rails"
 gem 'rails-i18n'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'inline_svg'
-gem 'aws-sdk-s3', '~> 1.190.0', require: false
+gem 'aws-sdk-s3', '~> 1.190.0'
