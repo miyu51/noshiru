@@ -38,7 +38,7 @@
   <div class="max-w-6xl mx-auto px-4">
     <% max.times do |i| %>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="md:border-r md:pr-6">
+        <div class="md:border-r md:border-white md:pr-6">
           <% if noshi = @noshis[i] %>
             <%= render 'noshi_bookmarks/noshi_bookmark_button', noshi: noshi %>
             <%= link_to noshi_path(noshi), class: "block hover:shadow-lg transition-shadow duration-300" do %>

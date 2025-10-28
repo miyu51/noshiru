@@ -1,9 +1,4 @@
 <div class="flex flex-col lg:flex-row justify-center items-center w-full px-4 py-8 space-y-8 lg:space-y-0 lg:space-x-12 z-10">
-  <!-- 画像セクション（非表示 on モバイル） -->
-  <div class="hidden lg:block pt-3 w-1/2 ml-auto lg:flex justify-center">
-    <%= image_tag 'login.png', class: "w-[80%] h-[80%] rounded-lg" %>
-  </div>
-
   <div class="bg-white w-full md:w-2/3 px-6 py-10 shadow-md rounded-lg">
     <p class="text-2xl mb-4 text-center text-zinc-800">ログイン</p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
