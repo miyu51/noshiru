@@ -109,7 +109,13 @@ Rails.application.configure do
         private
 
         def upload_with_multipart(key, io, checksum: nil, **upload_options)
-          upload(key, io)
+          instrument :upload, key: key do
+            @client.put_object(
+              bucket: @bucket,
+              key: key,
+              body: io
+            )
+          end
         end
       end
     end
