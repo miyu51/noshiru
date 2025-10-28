@@ -104,7 +104,7 @@ Rails.application.configure do
   config.active_storage.service = :r2
   config.active_storage.variant_processor = :mini_magick
   Rails.application.config.to_prepare do
-    if Rails.env.production?
+    if Rails.env.production? && defined?(ActiveStorage::Service::S3Service)
       ActiveStorage::Service::S3Service.class_eval do
         private
 
