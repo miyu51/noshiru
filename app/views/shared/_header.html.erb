@@ -12,9 +12,9 @@
 
     <!-- 中央：リンク集（中画面以上で表示） -->
     <ul class="hidden md:flex space-x-6 text-zinc-800 text-2xl text-center">
-      <li class="hover:underline">Noshiruについて</li>
-      <li class="hover:underline"><%= link_to 'コラム一覧', columns_path %></li>
-      <li class="hover:underline">熨斗紙テンプレート</li>
+      <li class="hover:underline cursor-pointer">Noshiruについて</li>
+      <li class="hover:underline cursor-pointer"><%= link_to 'コラム一覧', columns_path %></li>
+      <li class="hover:underline cursor-pointer">熨斗紙テンプレート</li>
     </ul>
 
     <div class="flex items-center justify-end space-x-4 text-red-500 text-5xl">
@@ -28,10 +28,10 @@
       <div class="md:hidden">
         <!-- 右側：メニューアイコン（三本線） -->
         <button id="menu-bar" class="text-5xl cursor-pointer text-zinc-500 hover:text-yellow-300 transition-colors duration-300">&#9776;</button>
-        <ul id="menu" class="hidden flex flex-col space-y-4 mt-4 text-lg text-zinc-700">
-          <li class="hover:underline">Noshiruについて</li>
-          <li class="hover:underline"><%= link_to 'コラム一覧', columns_path %></li>
-          <li class="hover:underline">熨斗紙テンプレート</li>
+        <ul id="menu" class="hidden flex flex-col space-y-4 mt-4 text-lg text-zinc-700 opacity-0 transition-opacity duration-500 ease-in-out">
+          <li class="hover:underline cursor-pointer">Noshiruについて</li>
+          <li class="hover:underline cursor-pointer"><%= link_to 'コラム一覧', columns_path %></li>
+          <li class="hover:underline cursor-pointer">熨斗紙テンプレート</li>
         </ul>
       </div>
     </div>
