@@ -109,7 +109,7 @@ Rails.application.configure do
         private
 
         def upload_with_multipart(key, io, checksum: nil, **upload_options)
-          clean_options = upload_options.except(:content_md5, :checksum_algorithm, :checksum_crc32, :checksum_crc32c, :checksum_sha1, :checksum_sha256)
+          clean_options = upload_options.except(:content_md5, :checksum_algorithm, :checksum_crc32, :checksum_crc32c, :checksum_sha1, :checksum_sha256, :checksum)
           super(key, io, checksum: nil, **clean_options)
         end
       end
