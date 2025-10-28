@@ -55,3 +55,32 @@ document.addEventListener('turbo:load', () => {
     hiddenInput.value = quill.root.innerHTML;
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const columns = document.querySelectorAll(".column-slideshow");
+
+  columns.forEach((column) => {
+    const images = column.querySelectorAll(".slideshow-image");
+    let index = 0;
+    let timer = null;
+
+    column.addEventListener("mouseenter", () => {
+      if (images.length <= 1) return;
+
+      timer = setInterval(() => {
+        images.forEach((img, i) => {
+          img.style.opacity = i === index ? "1" : "0";
+        });
+        index = (index + 1) % images.length;
+      }, 1500);
+    });
+
+    column.addEventListener("mouseleave", () => {
+      clearInterval(timer);
+      images.forEach((img, i) => {
+        img.style.opacity = i === 0 ? "1" : "0";
+      });
+      index = 0;
+    });
+  });
+});

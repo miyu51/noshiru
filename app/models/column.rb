@@ -7,7 +7,6 @@ class Column < ApplicationRecord
   has_many :tags, through: :column_tags
   has_many :column_bookmarks, dependent: :destroy
   has_many :bookmarked_by_users, through: :column_bookmarks, source: :user
-  has_one_attached :thumbnail
 
   def self.ransackable_associations(auth_object = nil)
     ["tags"]

@@ -3,7 +3,7 @@
 
     <!-- 左側：ロゴとキャッチコピー -->
     <div class="flex flex-col">
-      <div class="mb-2 w-[80px] md:w-[200px]">
+      <div class="mb-2 w-[100px] md:w-[200px]">
         <%= link_to root_path do %>
           <%= image_tag 'logo.png', class: "w-full h-auto object-contain transition-all duration-300 ease-in-out" %>
         <% end %>
@@ -27,9 +27,7 @@
 
       <div class="md:hidden">
         <!-- 右側：メニューアイコン（三本線） -->
-        <button id="menu-bar" class="h-10 w-10 cursor-pointer">
-          <%= image_tag 'menu-bar.png' %>
-        </button>
+        <button id="menu-bar" class="text-5xl cursor-pointer text-zinc-500 hover:text-yellow-300 transition-colors duration-300">&#9776;</button>
         <ul id="menu" class="hidden flex flex-col space-y-4 mt-4 text-lg text-zinc-700">
           <li class="hover:underline">Noshiruについて</li>
           <li class="hover:underline"><%= link_to 'コラム一覧', columns_path %></li>
@@ -39,4 +37,4 @@
     </div>
   </div>
 </header>
-<div class="bg-gradient-to-b from-white via-zinc-100 to-transparent h-10 w-full"></div>
+<div class="bg-gradient-to-b from-white via-zinc-100 to-transparent h-20 w-full"></div>
