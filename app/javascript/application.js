@@ -8,6 +8,8 @@ document.addEventListener("turbo:load", function () {
   if (menuBar && menu && !menuBar.dataset.listenerAttached) {
   menuBar.addEventListener("click", () => {
     menu.classList.toggle("hidden");
+    menu.classList.toggle("opacity-0");
+    menu.classList.toggle("opacity-100");
   });
   menuBar.dataset.listenerAttached = "true";
   }
