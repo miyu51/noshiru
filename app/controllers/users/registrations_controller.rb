@@ -8,6 +8,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def create
+    super do |resource|
+      if resource.persisted?
+        flash[:notice] = I18n.t('devise.confirmations.send_instructions')
+      end
+    end
+  end
+
   # POST /resource
 
   # GET /resource/edit
