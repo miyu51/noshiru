@@ -7,6 +7,10 @@ class GmailSender
     
     message = Google::Apis::GmailV1::Message.new(raw: encode_email(to, subject, body))
     service.send_user_message('me', message)
+
+    Rails.logger.info "📨 Gmail APIで送信成功：#{to} - #{subject}"
+  rescue => e
+    Rails.logger.error "⚠️ Gmail API送信失敗：#{e.message}"
   end
 
   private
