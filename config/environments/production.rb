@@ -103,7 +103,7 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.active_storage.service = :r2
   config.active_storage.variant_processor = :mini_magick
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :test
   config.action_mailer.smtp_settings = {
     addresses: 'smtp.sendgrid.net',
     port: 587,
