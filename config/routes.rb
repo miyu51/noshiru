@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "google_auth/callback"
   get "references/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -55,4 +56,5 @@ Rails.application.routes.draw do
   end
 
   resources :references, only: %i[index]
+  get '/oauth2callback', to: 'google_auth#callback'
 end

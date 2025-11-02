@@ -72,3 +72,5 @@ gem "jquery-rails"
 gem 'rails-i18n'
 gem 'inline_svg'
 gem 'aws-sdk-s3', '~> 1.190.0'
+gem 'google-apis-gmail_v1'
+gem 'googleauth'

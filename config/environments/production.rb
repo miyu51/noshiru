@@ -103,21 +103,15 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.active_storage.service = :r2
   config.active_storage.variant_processor = :mini_magick
-  Rails.application.config.to_prepare do
-    if Rails.env.production? && defined?(ActiveStorage::Service::S3Service)
-      ActiveStorage::Service::S3Service.class_eval do
-        private
-
-        def upload_with_multipart(key, io, checksum: nil, **upload_options)
-          instrument :upload, key: key do
-            @client.put_object(
-              bucket: @bucket,
-              key: key,
-              body: io
-            )
-          end
-        end
-      end
-    end
-  end
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    addresses: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'yourdomain.com',
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+  config.action_mailer.default_url_options = { host: 'https://noshiru.onrender.com', protocol: 'https' }
 end
