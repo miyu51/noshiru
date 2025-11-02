@@ -319,4 +319,6 @@ Devise.setup do |config|
   Rails.application.config.to_prepare do
     Devise::Mailer.layout "mailer"
   end
+
+  config.mailer = 'CustomDeviseMailer'
 end
