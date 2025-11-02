@@ -105,9 +105,9 @@ Rails.application.configure do
   config.active_storage.variant_processor = :mini_magick
   config.action_mailer.delivery_method = :test
   config.action_mailer.smtp_settings = {
-    addresses: 'smtp.sendgrid.net',
+    addresses: 'smtp.gmail.com',
     port: 587,
-    domain: 'yourdomain.com',
+    domain: 'gmail.com',
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
     authentication: 'plain',
