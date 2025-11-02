@@ -2,7 +2,7 @@
   <div class="bg-white w-2/3 px-6 py-10 shadow-md rounded-lg">
     <p class="text-2xl mb-4 text-center text-zinc-800">確認メールの再送</p>
     <p class="mt-4 text-zinc-600 text-center">メールが届かない場合は、以下から再送信できます。</p>
-    <%= form_with model: resource, url: user_confirmation_path(resource_name), local: true do |f| %>
+    <%= form_with model: resource, url: user_confirmation_path(resource_name), local: true, data: { turbo: false } do |f| %>
       <div class="mb-4 mt-8">
         <%= f.label :email, "メールアドレス", class: "block mb-1 text-zinc-800" %>
         <%= f.email_field :email, class: "text-white w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder: "メールアドバイス" %>
