@@ -1,11 +1,9 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
-import "./controllers"
-import $ from 'jquery'
+import "controllers"
+import 'jquery'
 import 'slick-carousel'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import Quill from 'quill'
+import 'quill'
 
 document.addEventListener("turbo:load", function () {
   const menuBar = document.getElementById("menu-bar");
