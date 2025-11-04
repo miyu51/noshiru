@@ -4,17 +4,20 @@ require 'base64'
 
 class GmailApiDelivery
   def initialize(values)
-    # 認証情報の初期化など
+    @service = Google::Apis::GmailV1::GmailService.new
+    token = GoogleMailerService.new.access_token
+    raise "⚠️ Gmail API認証失敗：トークンが取得できません" unless token
+
+    @service.authorization = token
   end
 
   def deliver!(mail)
-    service = Google::Apis::GmailV1::GmailService.new
-    service.authorization = Google::Auth.get_application_default(['https://www.googleapis.com/auth/gmail.send'])
-
     message = Google::Apis::GmailV1::Message.new(
-      raw: Base64.urlsafe_encode64(mail.to_s)
+      raw: Base64.urlsafe_encode64(mail.encoded)
     )
-
-    service.send_user_message('me', message)
+    @service.send_user_message('me', message)
+    Rails.logger.info "📨 Gmail APIで送信成功：#{mail.to}"
+  rescue => e
+    Rails.logger.error "⚠️ Gmail API送信失敗：#{e.message}"
   end
 end
