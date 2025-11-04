@@ -5,6 +5,7 @@ import $ from 'jquery'
 import 'slick-carousel'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import Quill from 'quill'
 
 document.addEventListener("turbo:load", function () {
   const menuBar = document.getElementById("menu-bar");
