@@ -103,15 +103,6 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.active_storage.service = :r2
   config.active_storage.variant_processor = :mini_magick
-  config.action_mailer.delivery_method = :test
-  config.action_mailer.smtp_settings = {
-    addresses: 'smtp.mailersend.net',
-    port: 587,
-    domain: 'mlsender.net',
-    user_name: ENV['SMTP_USERNAME'],
-    password: ENV['SMTP_PASSWORD'],
-    authentication: 'login',
-    enable_starttls_auto: true
-  }
+  config.action_mailer.delivery_method = :gmail_api, GmailApiDelivery
   config.action_mailer.default_url_options = { host: 'https://noshiru.onrender.com', protocol: 'https' }
 end

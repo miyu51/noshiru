@@ -3,7 +3,10 @@ require 'google/apis/gmail_v1'
 class GmailSender
   def send_email(to:, subject:, body:)
     service = Google::Apis::GmailV1::GmailService.new
-    service.authorization = GoogleMailerService.new.access_token
+
+    token = GoogleMailerService.new.access_token
+    return unless token
+    service.authorization = token
     
     message = Google::Apis::GmailV1::Message.new(raw: encode_email(to, subject, body))
     service.send_user_message('me', message)
@@ -18,6 +21,7 @@ class GmailSender
   def encode_email(to, subject, body)
     mail = <<~EOF
       To: #{to}
+      From: thereishopeforatree.256261219@gmail.com
       Subject: #{subject}
       Content-Type: text/plain; charset="UTF-8"
 
