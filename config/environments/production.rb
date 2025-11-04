@@ -105,12 +105,12 @@ Rails.application.configure do
   config.active_storage.variant_processor = :mini_magick
   config.action_mailer.delivery_method = :test
   config.action_mailer.smtp_settings = {
-    addresses: 'smtp.gmail.com',
+    addresses: 'smtp.mailersend.net',
     port: 587,
-    domain: 'gmail.com',
+    domain: 'mlsender.net',
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
-    authentication: 'plain',
+    authentication: 'login',
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { host: 'https://noshiru.onrender.com', protocol: 'https' }
