@@ -5,9 +5,6 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
-  config.to_prepare do
-    require Rails.root.join('lib', 'gmail_api_delivery')
-  end
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
