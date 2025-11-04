@@ -106,9 +106,9 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :gmail_api, GmailApiDelivery
   config.action_mailer.default_url_options = { host: 'https://noshiru.onrender.com', protocol: 'https' }
   unless ENV['SECRET_KEY_BASE_DUMMY']
-    config.action_mailer.delivery_method = :gmail_api
-    config.action_mailer.gmail_api_settings = {
-      delivery_class: 'GmailApiDelivery'
-    }
+    config.after_initialize do
+      config.action_mailer.delivery_method = :gmail_api
+      config.action_mailer.add_delivery_method :gmail_api, 'GmailApiDelivery'
+    end
   end
 end
