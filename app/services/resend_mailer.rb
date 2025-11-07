@@ -33,7 +33,8 @@ class ResendMailer < Devise::Mailer
       assigns: {
         resource: record,
         token: token,
-        devise_mapping: Devise.mappings[:user]
+        devise_mapping: Devise.mappings[:user],
+        resource_name: :user
       }
     )
 
