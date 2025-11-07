@@ -135,10 +135,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_28_063407) do
     t.string "color", null: false
     t.string "description", null: false
     t.string "image", null: false
-    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_noshis_on_category_id"
   end
 
   create_table "references", force: :cascade do |t|

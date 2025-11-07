@@ -6,7 +6,6 @@ class CreateNoshis < ActiveRecord::Migration[7.2]
       t.string :color, null: false
       t.string :description, null: false
       t.string :image, null: false      
-      t.references :category, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,0 +1,296 @@
+pg_restore: connecting to database for restore
+pg_restore: dropping FK CONSTRAINT noshi_bookmarks fk_rails_fa472510a0
+pg_restore: dropping FK CONSTRAINT column_tags fk_rails_f7385ac39a
+pg_restore: dropping FK CONSTRAINT column_bookmarks fk_rails_cfe6acf0d3
+pg_restore: dropping FK CONSTRAINT noshi_columns fk_rails_c71706525a
+pg_restore: dropping FK CONSTRAINT active_storage_attachments fk_rails_c3b3935057
+pg_restore: dropping FK CONSTRAINT noshi_synonyms fk_rails_a47c2d63ec
+pg_restore: dropping FK CONSTRAINT noshi_categories fk_rails_9c8b235e63
+pg_restore: dropping FK CONSTRAINT active_storage_variant_records fk_rails_993965df05
+pg_restore: dropping FK CONSTRAINT noshi_tags fk_rails_97351533e5
+pg_restore: dropping FK CONSTRAINT noshi_columns fk_rails_8677717f44
+pg_restore: dropping FK CONSTRAINT column_bookmarks fk_rails_8100fbd76b
+pg_restore: dropping FK CONSTRAINT noshi_synonyms fk_rails_7017d236ed
+pg_restore: dropping FK CONSTRAINT column_tags fk_rails_67841af127
+pg_restore: dropping FK CONSTRAINT noshi_categories fk_rails_6343998730
+pg_restore: dropping FK CONSTRAINT noshi_bookmarks fk_rails_20186964c9
+pg_restore: dropping FK CONSTRAINT noshi_tags fk_rails_1a5af293d6
+pg_restore: dropping INDEX index_users_on_reset_password_token
+pg_restore: dropping INDEX index_users_on_provider_and_uid
+pg_restore: dropping INDEX index_users_on_email
+pg_restore: dropping INDEX index_users_on_confirmation_token
+pg_restore: dropping INDEX index_tags_on_name
+pg_restore: dropping INDEX index_synonyms_on_word
+pg_restore: dropping INDEX index_noshis_on_category_id
+pg_restore: dropping INDEX index_noshi_tags_on_tag_id
+pg_restore: dropping INDEX index_noshi_tags_on_noshi_id_and_tag_id
+pg_restore: dropping INDEX index_noshi_tags_on_noshi_id
+pg_restore: dropping INDEX index_noshi_synonyms_on_synonym_id
+pg_restore: dropping INDEX index_noshi_synonyms_on_noshi_id_and_synonym_id
+pg_restore: dropping INDEX index_noshi_synonyms_on_noshi_id
+pg_restore: dropping INDEX index_noshi_columns_on_noshi_id_and_column_id
+pg_restore: dropping INDEX index_noshi_columns_on_noshi_id
+pg_restore: dropping INDEX index_noshi_columns_on_column_id
+pg_restore: dropping INDEX index_noshi_categories_on_noshi_id_and_category_id
+pg_restore: dropping INDEX index_noshi_categories_on_noshi_id
+pg_restore: dropping INDEX index_noshi_categories_on_category_id
+pg_restore: dropping INDEX index_noshi_bookmarks_on_user_id_and_noshi_id
+pg_restore: dropping INDEX index_noshi_bookmarks_on_user_id
+pg_restore: dropping INDEX index_noshi_bookmarks_on_noshi_id
+pg_restore: dropping INDEX index_column_tags_on_tag_id
+pg_restore: dropping INDEX index_column_tags_on_column_id_and_tag_id
+pg_restore: dropping INDEX index_column_tags_on_column_id
+pg_restore: dropping INDEX index_column_bookmarks_on_user_id_and_column_id
+pg_restore: dropping INDEX index_column_bookmarks_on_user_id
+pg_restore: dropping INDEX index_column_bookmarks_on_column_id
+pg_restore: dropping INDEX index_categories_on_use_case_and_religion
+pg_restore: dropping INDEX index_active_storage_variant_records_uniqueness
+pg_restore: dropping INDEX index_active_storage_blobs_on_key
+pg_restore: dropping INDEX index_active_storage_attachments_uniqueness
+pg_restore: dropping INDEX index_active_storage_attachments_on_blob_id
+pg_restore: dropping CONSTRAINT users users_pkey
+pg_restore: dropping CONSTRAINT tags tags_pkey
+pg_restore: dropping CONSTRAINT synonyms synonyms_pkey
+pg_restore: dropping CONSTRAINT schema_migrations schema_migrations_pkey
+pg_restore: dropping CONSTRAINT references references_pkey
+pg_restore: dropping CONSTRAINT noshis noshis_pkey
+pg_restore: dropping CONSTRAINT noshi_tags noshi_tags_pkey
+pg_restore: dropping CONSTRAINT noshi_synonyms noshi_synonyms_pkey
+pg_restore: dropping CONSTRAINT noshi_columns noshi_columns_pkey
+pg_restore: dropping CONSTRAINT noshi_categories noshi_categories_pkey
+pg_restore: dropping CONSTRAINT noshi_bookmarks noshi_bookmarks_pkey
+pg_restore: dropping CONSTRAINT columns columns_pkey
+pg_restore: dropping CONSTRAINT column_tags column_tags_pkey
+pg_restore: dropping CONSTRAINT column_bookmarks column_bookmarks_pkey
+pg_restore: dropping CONSTRAINT categories categories_pkey
+pg_restore: dropping CONSTRAINT ar_internal_metadata ar_internal_metadata_pkey
+pg_restore: dropping CONSTRAINT active_storage_variant_records active_storage_variant_records_pkey
+pg_restore: dropping CONSTRAINT active_storage_blobs active_storage_blobs_pkey
+pg_restore: dropping CONSTRAINT active_storage_attachments active_storage_attachments_pkey
+pg_restore: dropping DEFAULT users id
+pg_restore: dropping DEFAULT tags id
+pg_restore: dropping DEFAULT synonyms id
+pg_restore: dropping DEFAULT references id
+pg_restore: dropping DEFAULT noshis id
+pg_restore: dropping DEFAULT noshi_tags id
+pg_restore: dropping DEFAULT noshi_synonyms id
+pg_restore: dropping DEFAULT noshi_columns id
+pg_restore: dropping DEFAULT noshi_categories id
+pg_restore: dropping DEFAULT noshi_bookmarks id
+pg_restore: dropping DEFAULT columns id
+pg_restore: dropping DEFAULT column_tags id
+pg_restore: dropping DEFAULT column_bookmarks id
+pg_restore: dropping DEFAULT categories id
+pg_restore: dropping DEFAULT active_storage_variant_records id
+pg_restore: dropping DEFAULT active_storage_blobs id
+pg_restore: dropping DEFAULT active_storage_attachments id
+pg_restore: dropping SEQUENCE users_id_seq
+pg_restore: dropping TABLE users
+pg_restore: dropping SEQUENCE tags_id_seq
+pg_restore: dropping TABLE tags
+pg_restore: dropping SEQUENCE synonyms_id_seq
+pg_restore: dropping TABLE synonyms
+pg_restore: dropping TABLE schema_migrations
+pg_restore: dropping SEQUENCE references_id_seq
+pg_restore: dropping TABLE references
+pg_restore: dropping SEQUENCE noshis_id_seq
+pg_restore: dropping TABLE noshis
+pg_restore: dropping SEQUENCE noshi_tags_id_seq
+pg_restore: dropping TABLE noshi_tags
+pg_restore: dropping SEQUENCE noshi_synonyms_id_seq
+pg_restore: dropping TABLE noshi_synonyms
+pg_restore: dropping SEQUENCE noshi_columns_id_seq
+pg_restore: dropping TABLE noshi_columns
+pg_restore: dropping SEQUENCE noshi_categories_id_seq
+pg_restore: dropping TABLE noshi_categories
+pg_restore: dropping SEQUENCE noshi_bookmarks_id_seq
+pg_restore: dropping TABLE noshi_bookmarks
+pg_restore: dropping SEQUENCE columns_id_seq
+pg_restore: dropping TABLE columns
+pg_restore: dropping SEQUENCE column_tags_id_seq
+pg_restore: dropping TABLE column_tags
+pg_restore: dropping SEQUENCE column_bookmarks_id_seq
+pg_restore: dropping TABLE column_bookmarks
+pg_restore: dropping SEQUENCE categories_id_seq
+pg_restore: dropping TABLE categories
+pg_restore: dropping TABLE ar_internal_metadata
+pg_restore: dropping SEQUENCE active_storage_variant_records_id_seq
+pg_restore: dropping TABLE active_storage_variant_records
+pg_restore: dropping SEQUENCE active_storage_blobs_id_seq
+pg_restore: dropping TABLE active_storage_blobs
+pg_restore: dropping SEQUENCE active_storage_attachments_id_seq
+pg_restore: dropping TABLE active_storage_attachments
+pg_restore: creating TABLE "public.active_storage_attachments"
+pg_restore: creating SEQUENCE "public.active_storage_attachments_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.active_storage_attachments_id_seq"
+pg_restore: creating TABLE "public.active_storage_blobs"
+pg_restore: creating SEQUENCE "public.active_storage_blobs_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.active_storage_blobs_id_seq"
+pg_restore: creating TABLE "public.active_storage_variant_records"
+pg_restore: creating SEQUENCE "public.active_storage_variant_records_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.active_storage_variant_records_id_seq"
+pg_restore: creating TABLE "public.ar_internal_metadata"
+pg_restore: creating TABLE "public.categories"
+pg_restore: creating SEQUENCE "public.categories_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.categories_id_seq"
+pg_restore: creating TABLE "public.column_bookmarks"
+pg_restore: creating SEQUENCE "public.column_bookmarks_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.column_bookmarks_id_seq"
+pg_restore: creating TABLE "public.column_tags"
+pg_restore: creating SEQUENCE "public.column_tags_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.column_tags_id_seq"
+pg_restore: creating TABLE "public.columns"
+pg_restore: creating SEQUENCE "public.columns_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.columns_id_seq"
+pg_restore: creating TABLE "public.noshi_bookmarks"
+pg_restore: creating SEQUENCE "public.noshi_bookmarks_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.noshi_bookmarks_id_seq"
+pg_restore: creating TABLE "public.noshi_categories"
+pg_restore: creating SEQUENCE "public.noshi_categories_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.noshi_categories_id_seq"
+pg_restore: creating TABLE "public.noshi_columns"
+pg_restore: creating SEQUENCE "public.noshi_columns_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.noshi_columns_id_seq"
+pg_restore: creating TABLE "public.noshi_synonyms"
+pg_restore: creating SEQUENCE "public.noshi_synonyms_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.noshi_synonyms_id_seq"
+pg_restore: creating TABLE "public.noshi_tags"
+pg_restore: creating SEQUENCE "public.noshi_tags_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.noshi_tags_id_seq"
+pg_restore: creating TABLE "public.noshis"
+pg_restore: creating SEQUENCE "public.noshis_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.noshis_id_seq"
+pg_restore: creating TABLE "public.references"
+pg_restore: creating SEQUENCE "public.references_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.references_id_seq"
+pg_restore: creating TABLE "public.schema_migrations"
+pg_restore: creating TABLE "public.synonyms"
+pg_restore: creating SEQUENCE "public.synonyms_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.synonyms_id_seq"
+pg_restore: creating TABLE "public.tags"
+pg_restore: creating SEQUENCE "public.tags_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.tags_id_seq"
+pg_restore: creating TABLE "public.users"
+pg_restore: creating SEQUENCE "public.users_id_seq"
+pg_restore: creating SEQUENCE OWNED BY "public.users_id_seq"
+pg_restore: creating DEFAULT "public.active_storage_attachments id"
+pg_restore: creating DEFAULT "public.active_storage_blobs id"
+pg_restore: creating DEFAULT "public.active_storage_variant_records id"
+pg_restore: creating DEFAULT "public.categories id"
+pg_restore: creating DEFAULT "public.column_bookmarks id"
+pg_restore: creating DEFAULT "public.column_tags id"
+pg_restore: creating DEFAULT "public.columns id"
+pg_restore: creating DEFAULT "public.noshi_bookmarks id"
+pg_restore: creating DEFAULT "public.noshi_categories id"
+pg_restore: creating DEFAULT "public.noshi_columns id"
+pg_restore: creating DEFAULT "public.noshi_synonyms id"
+pg_restore: creating DEFAULT "public.noshi_tags id"
+pg_restore: creating DEFAULT "public.noshis id"
+pg_restore: creating DEFAULT "public.references id"
+pg_restore: creating DEFAULT "public.synonyms id"
+pg_restore: creating DEFAULT "public.tags id"
+pg_restore: creating DEFAULT "public.users id"
+pg_restore: processing data for table "public.active_storage_attachments"
+pg_restore: processing data for table "public.active_storage_blobs"
+pg_restore: processing data for table "public.active_storage_variant_records"
+pg_restore: processing data for table "public.ar_internal_metadata"
+pg_restore: processing data for table "public.categories"
+pg_restore: processing data for table "public.column_bookmarks"
+pg_restore: processing data for table "public.column_tags"
+pg_restore: processing data for table "public.columns"
+pg_restore: processing data for table "public.noshi_bookmarks"
+pg_restore: processing data for table "public.noshi_categories"
+pg_restore: processing data for table "public.noshi_columns"
+pg_restore: processing data for table "public.noshi_synonyms"
+pg_restore: processing data for table "public.noshi_tags"
+pg_restore: processing data for table "public.noshis"
+pg_restore: processing data for table "public.references"
+pg_restore: processing data for table "public.schema_migrations"
+pg_restore: processing data for table "public.synonyms"
+pg_restore: processing data for table "public.tags"
+pg_restore: processing data for table "public.users"
+pg_restore: executing SEQUENCE SET active_storage_attachments_id_seq
+pg_restore: executing SEQUENCE SET active_storage_blobs_id_seq
+pg_restore: executing SEQUENCE SET active_storage_variant_records_id_seq
+pg_restore: executing SEQUENCE SET categories_id_seq
+pg_restore: executing SEQUENCE SET column_bookmarks_id_seq
+pg_restore: executing SEQUENCE SET column_tags_id_seq
+pg_restore: executing SEQUENCE SET columns_id_seq
+pg_restore: executing SEQUENCE SET noshi_bookmarks_id_seq
+pg_restore: executing SEQUENCE SET noshi_categories_id_seq
+pg_restore: executing SEQUENCE SET noshi_columns_id_seq
+pg_restore: executing SEQUENCE SET noshi_synonyms_id_seq
+pg_restore: executing SEQUENCE SET noshi_tags_id_seq
+pg_restore: executing SEQUENCE SET noshis_id_seq
+pg_restore: executing SEQUENCE SET references_id_seq
+pg_restore: executing SEQUENCE SET synonyms_id_seq
+pg_restore: executing SEQUENCE SET tags_id_seq
+pg_restore: executing SEQUENCE SET users_id_seq
+pg_restore: creating CONSTRAINT "public.active_storage_attachments active_storage_attachments_pkey"
+pg_restore: creating CONSTRAINT "public.active_storage_blobs active_storage_blobs_pkey"
+pg_restore: creating CONSTRAINT "public.active_storage_variant_records active_storage_variant_records_pkey"
+pg_restore: creating CONSTRAINT "public.ar_internal_metadata ar_internal_metadata_pkey"
+pg_restore: creating CONSTRAINT "public.categories categories_pkey"
+pg_restore: creating CONSTRAINT "public.column_bookmarks column_bookmarks_pkey"
+pg_restore: creating CONSTRAINT "public.column_tags column_tags_pkey"
+pg_restore: creating CONSTRAINT "public.columns columns_pkey"
+pg_restore: creating CONSTRAINT "public.noshi_bookmarks noshi_bookmarks_pkey"
+pg_restore: creating CONSTRAINT "public.noshi_categories noshi_categories_pkey"
+pg_restore: creating CONSTRAINT "public.noshi_columns noshi_columns_pkey"
+pg_restore: creating CONSTRAINT "public.noshi_synonyms noshi_synonyms_pkey"
+pg_restore: creating CONSTRAINT "public.noshi_tags noshi_tags_pkey"
+pg_restore: creating CONSTRAINT "public.noshis noshis_pkey"
+pg_restore: creating CONSTRAINT "public.references references_pkey"
+pg_restore: creating CONSTRAINT "public.schema_migrations schema_migrations_pkey"
+pg_restore: creating CONSTRAINT "public.synonyms synonyms_pkey"
+pg_restore: creating CONSTRAINT "public.tags tags_pkey"
+pg_restore: creating CONSTRAINT "public.users users_pkey"
+pg_restore: creating INDEX "public.index_active_storage_attachments_on_blob_id"
+pg_restore: creating INDEX "public.index_active_storage_attachments_uniqueness"
+pg_restore: creating INDEX "public.index_active_storage_blobs_on_key"
+pg_restore: creating INDEX "public.index_active_storage_variant_records_uniqueness"
+pg_restore: creating INDEX "public.index_categories_on_use_case_and_religion"
+pg_restore: creating INDEX "public.index_column_bookmarks_on_column_id"
+pg_restore: creating INDEX "public.index_column_bookmarks_on_user_id"
+pg_restore: creating INDEX "public.index_column_bookmarks_on_user_id_and_column_id"
+pg_restore: creating INDEX "public.index_column_tags_on_column_id"
+pg_restore: creating INDEX "public.index_column_tags_on_column_id_and_tag_id"
+pg_restore: creating INDEX "public.index_column_tags_on_tag_id"
+pg_restore: creating INDEX "public.index_noshi_bookmarks_on_noshi_id"
+pg_restore: creating INDEX "public.index_noshi_bookmarks_on_user_id"
+pg_restore: creating INDEX "public.index_noshi_bookmarks_on_user_id_and_noshi_id"
+pg_restore: creating INDEX "public.index_noshi_categories_on_category_id"
+pg_restore: creating INDEX "public.index_noshi_categories_on_noshi_id"
+pg_restore: creating INDEX "public.index_noshi_categories_on_noshi_id_and_category_id"
+pg_restore: creating INDEX "public.index_noshi_columns_on_column_id"
+pg_restore: creating INDEX "public.index_noshi_columns_on_noshi_id"
+pg_restore: creating INDEX "public.index_noshi_columns_on_noshi_id_and_column_id"
+pg_restore: creating INDEX "public.index_noshi_synonyms_on_noshi_id"
+pg_restore: creating INDEX "public.index_noshi_synonyms_on_noshi_id_and_synonym_id"
+pg_restore: creating INDEX "public.index_noshi_synonyms_on_synonym_id"
+pg_restore: creating INDEX "public.index_noshi_tags_on_noshi_id"
+pg_restore: creating INDEX "public.index_noshi_tags_on_noshi_id_and_tag_id"
+pg_restore: creating INDEX "public.index_noshi_tags_on_tag_id"
+pg_restore: creating INDEX "public.index_noshis_on_category_id"
+pg_restore: creating INDEX "public.index_synonyms_on_word"
+pg_restore: creating INDEX "public.index_tags_on_name"
+pg_restore: creating INDEX "public.index_users_on_confirmation_token"
+pg_restore: creating INDEX "public.index_users_on_email"
+pg_restore: creating INDEX "public.index_users_on_provider_and_uid"
+pg_restore: creating INDEX "public.index_users_on_reset_password_token"
+pg_restore: creating FK CONSTRAINT "public.noshi_tags fk_rails_1a5af293d6"
+pg_restore: creating FK CONSTRAINT "public.noshi_bookmarks fk_rails_20186964c9"
+pg_restore: creating FK CONSTRAINT "public.noshi_categories fk_rails_6343998730"
+pg_restore: creating FK CONSTRAINT "public.column_tags fk_rails_67841af127"
+pg_restore: creating FK CONSTRAINT "public.noshi_synonyms fk_rails_7017d236ed"
+pg_restore: creating FK CONSTRAINT "public.column_bookmarks fk_rails_8100fbd76b"
+pg_restore: creating FK CONSTRAINT "public.noshi_columns fk_rails_8677717f44"
+pg_restore: creating FK CONSTRAINT "public.noshi_tags fk_rails_97351533e5"
+pg_restore: creating FK CONSTRAINT "public.active_storage_variant_records fk_rails_993965df05"
+pg_restore: creating FK CONSTRAINT "public.noshi_categories fk_rails_9c8b235e63"
+pg_restore: creating FK CONSTRAINT "public.noshi_synonyms fk_rails_a47c2d63ec"
+pg_restore: creating FK CONSTRAINT "public.active_storage_attachments fk_rails_c3b3935057"
+pg_restore: creating FK CONSTRAINT "public.noshi_columns fk_rails_c71706525a"
+pg_restore: creating FK CONSTRAINT "public.column_bookmarks fk_rails_cfe6acf0d3"
+pg_restore: creating FK CONSTRAINT "public.column_tags fk_rails_f7385ac39a"
+pg_restore: creating FK CONSTRAINT "public.noshi_bookmarks fk_rails_fa472510a0"
