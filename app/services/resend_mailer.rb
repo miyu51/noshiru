@@ -30,7 +30,11 @@ class ResendMailer < Devise::Mailer
 
     html = ApplicationController.render(
       template: "devise/mailer/#{template}",
-      assigns: { resource: record, token: token }
+      assigns: {
+        resource: record,
+        token: token,
+        devise_mapping: Devise.mappings[:user]
+      }
     )
 
     Resend::Emails.send(
