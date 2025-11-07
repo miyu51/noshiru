@@ -113,6 +113,8 @@ Rails.application.configure do
     user_name:            ENV['SMTP_USERNAME'], # Gmailアドレス
     password:             ENV['SMTP_PASSWORD'], # App Password（2段階認証時）
     authentication:       'plain',
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    open_timeout:         10,
+    read_timeout:         10
   }
 end
