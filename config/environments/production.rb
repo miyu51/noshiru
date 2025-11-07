@@ -110,8 +110,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-    user_name:            ENV['GMAIL_USERNAME'], # Gmailアドレス
-    password:             ENV['GMAIL_PASSWORD'], # App Password（2段階認証時）
+    user_name:            ENV['SMTP_USERNAME'], # Gmailアドレス
+    password:             ENV['SMTP_PASSWORD'], # App Password（2段階認証時）
     authentication:       'plain',
     enable_starttls_auto: true
   }
