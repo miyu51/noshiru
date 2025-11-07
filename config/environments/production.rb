@@ -105,16 +105,5 @@ Rails.application.configure do
   config.active_storage.variant_processor = :mini_magick
   # config.action_mailer.delivery_method = :gmail_api, GmailApiDelivery
   config.action_mailer.default_url_options = { host: 'https://noshiru.onrender.com', protocol: 'https' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 465,
-    domain:               'gmail.com',
-    user_name:            ENV['SMTP_USERNAME'], # Gmailアドレス
-    password:             ENV['SMTP_PASSWORD'], # App Password（2段階認証時）
-    authentication:       'plain',
-    enable_starttls_auto: true,
-    open_timeout:         10,
-    read_timeout:         10
-  }
+  config.action_mailer.raise_delivery_errors = true
 end
