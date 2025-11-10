@@ -101,8 +101,6 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-  config.active_storage.service = :r2
-  config.active_storage.variant_processor = :mini_magick
   config.action_mailer.default_url_options = { host: 'noshiru.onrender.com', protocol: 'https' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true

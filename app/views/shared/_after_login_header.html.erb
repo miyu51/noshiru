@@ -16,7 +16,7 @@
       <li class="hover:underline cursor-pointer"><%= link_to 'コラム一覧', columns_path %></li>
       <li class="hover:underline cursor-pointer">熨斗紙テンプレート</li>
       <li class="hover:underline cursor-pointer">
-        <%= form_with url: logout_path, method: :delete do %>
+        <%= form_with url: logout_path, method: :get do %>
           <%= submit_tag "ログアウト", class: "hover:underline cursor-pointer" %>
         <% end %>
       </li>
@@ -36,7 +36,7 @@
           <li class="hover:underline cursor-pointer"><%= link_to 'コラム一覧', columns_path %></li>
           <li class="hover:underline cursor-pointer">熨斗紙テンプレート</li>
           <li class="hover:underline cursor-pointer">
-            <%= form_with url: logout_path, method: :delete do %>
+            <%= form_with url: logout_path, method: :get do %>
               <%= submit_tag "ログアウト", class: "hover:underline cursor-pointer" %>
             <% end %>
           </li>

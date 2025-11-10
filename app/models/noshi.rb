@@ -15,6 +15,14 @@ class Noshi < ApplicationRecord
   has_many :noshi_bookmarks, dependent: :destroy
   has_many :bookmarked_by_users, through: :noshi_bookmarks, source: :user
 
+ransacker :categories_use_case do
+  Arel.sql("(SELECT string_agg(categories.use_case, ' ') FROM categories INNER JOIN noshi_categories ON categories.id = noshi_categories.category_id WHERE noshi_categories.noshi_id = noshis.id)")
+end
+
+ransacker :categories_religion do
+  Arel.sql("(SELECT string_agg(categories.religion, ' ') FROM categories INNER JOIN noshi_categories ON categories.id = noshi_categories.category_id WHERE noshi_categories.noshi_id = noshis.id)")
+end
+
   def self.ransackable_attributes(auth_object = nil)
     %w[id label color knot image description created_at updated_at]
   end

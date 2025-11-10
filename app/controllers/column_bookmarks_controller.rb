@@ -16,7 +16,7 @@ class ColumnBookmarksController < ApplicationController
   end
 
   def show
-    @columns = current_user.bookmark_columns.includes(:thumbnail_attachment)
+    @columns = current_user.bookmark_columns
   end
 
   def destroy
