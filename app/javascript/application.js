@@ -1,7 +1,8 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
-import "firebase"
+//= require jquery
+//= require slick.min
 
 document.addEventListener("turbo:load", function () {
   const menuBar = document.getElementById("menu-bar");

@@ -20,7 +20,7 @@
     <div class="flex items-center justify-end space-x-4 text-red-500 text-5xl">
       <!-- 右側：ログインアイコン -->
       <div class="hover:scale-105">
-        <%= link_to '/auth/google_oauth2' do %>
+        <%= link_to '/auth/google_oauth2', data: { turbo: false } do %>
           <button class="gsi-material-button mt-2 items-center justify-center">
             <div class="gsi-material-button-state"></div>
             <div class="gsi-material-button-content-wrapper">
