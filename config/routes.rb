@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   get 'my_page' => 'users#my_page'
 
-  # Defines the root path route ("/")
-  # root "posts#index"
   root 'tops#top'
 
   resources :noshis, only: %i[index show] do
