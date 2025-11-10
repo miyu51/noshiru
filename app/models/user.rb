@@ -5,19 +5,8 @@ class User < ApplicationRecord
   has_many :bookmark_noshis, through: :noshi_bookmarks, source: :noshi
   has_many :column_bookmarks, dependent: :destroy
   has_many :bookmark_columns, through: :column_bookmarks, source: :column
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable, :omniauthable, omniauth_providers: %i[google_oauth2]
+  validates :email, presence: true, uniqueness: true
   enum role: { general: 0, admin: 1 }
-
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.skip_confirmation!
-    end
-  end
 
   def noshi_bookmark(noshi)
     bookmark_noshis << noshi

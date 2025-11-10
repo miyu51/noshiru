@@ -1,10 +1,5 @@
 class NoshiBookmarksController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :show, :destroy]
-
-  def require_login
-    flash[:alert] = 'ブックマーク機能はログイン後にご利用いただけます。'
-    redirect_to new_user_session_path
-  end
+  before_action :require_login, only: [:create, :show, :destroy]
 
   def create
     @noshi = Noshi.find(params[:noshi_id])

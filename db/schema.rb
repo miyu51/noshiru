@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_28_063407) do
+ActiveRecord::Schema[7.2].define(version: 2025_11_08_132743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -135,8 +135,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_28_063407) do
     t.string "color", null: false
     t.string "description", null: false
     t.string "image", null: false
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_noshis_on_category_id"
   end
 
   create_table "references", force: :cascade do |t|
@@ -168,10 +170,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_28_063407) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "provider"
@@ -181,10 +179,12 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_28_063407) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.integer "role", default: 0, null: false
+    t.string "otp_secret"
+    t.integer "consumed_timestep"
+    t.boolean "otp_required_for_login"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

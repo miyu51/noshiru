@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get "google_auth/callback"
   get "references/index"
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/login', to: 'sessions#login', as: :login
+  get '/logout', to: 'sessions#destroy'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -32,20 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    confirmations: 'users/confirmations',
-    passwords: 'users/passwords',
-    unlocks: 'users/unlocks',
-    omniauth_callbacks: 'users/omniauth_callbacks',
-  }
-
-  devise_scope :user do
-    get '/admin/login' => "admin/sessions#new", :as => :admin_login
-    post '/admin/login' => "admin/sessions#create"
-    delete '/admin/logout' => "admin/sessions#destroy", :as => :admin_logout
-  end
+  post 'users/firebase_login', to: 'users/sessions#firebase'
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
@@ -57,5 +47,4 @@ Rails.application.routes.draw do
   end
 
   resources :references, only: %i[index]
-  get '/oauth2callback', to: 'google_auth#callback'
 end

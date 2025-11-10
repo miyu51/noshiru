@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "firebase": "^12.5.0",
     "jquery": "^3.7.1",
     "quill": "^2.0.3",
     "resend": "^6.4.1",

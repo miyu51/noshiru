@@ -62,7 +62,6 @@ end
 
 gem "ruby"
 gem "dotenv-rails", groups: [:development, :test]
-gem "devise"
 gem "omniauth"
 gem "omniauth-rails_csrf_protection"
 gem "omniauth-google-oauth2"
