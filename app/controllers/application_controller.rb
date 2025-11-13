@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   unless Rails.env.development?
     rescue_from ActiveRecord::RecordNotFound, with: :render_404
     rescue_from ActiveController::RoutingError, with: :render_404
-    rescue_from StandardError, with: :render_500
+    rescue_from StandardError::RoutingError, with: :render_500
   end
 
   def after_sign_in_path_for(resource)
