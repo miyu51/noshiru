@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :user_signed_in?
   allow_browser versions: :modern
   unless Rails.env.development?
-    rescue_form ActiveRecord::RecordNotFound, with: :render_404
-    rescue_form ActiveController::RoutingError, with: :render_404
+    rescue_from ActiveRecord::RecordNotFound, with: :render_404
+    rescue_from ActiveController::RoutingError, with: :render_404
+    rescue_from StandardError, with: :render_500
   end
 
   def after_sign_in_path_for(resource)
@@ -29,10 +30,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+
   def render_404
     respond_to do |format|
       format.html { redirect_to "/404" }
       format.all { head :not_found }
     end
+  end
+
+  def render_500(exceptions = nil)
+    logger.error(exception.message) if exception
+    logger.error(exception.backtrace.join("\n")) if exception
+
+    render template: "errors/internal_server_error", status: :internal_server_error
   end
 end
