@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   unless Rails.env.development?
     rescue_from ActiveRecord::RecordNotFound, with: :render_404
-    rescue_from ActiveController::RoutingError, with: :render_404
+    rescue_from ActionController::RoutingError, with: :render_404
     rescue_from StandardError::RoutingError, with: :render_500
   end
 
