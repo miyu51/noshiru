@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "errors/not_found"
+  get "errors/internal_server_error"
   get "references/index"
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/login', to: 'sessions#login', as: :login
@@ -46,4 +48,8 @@ Rails.application.routes.draw do
   end
 
   resources :references, only: %i[index]
+
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
+  match "*path", to: "errors#not_found", via: :all
 end
