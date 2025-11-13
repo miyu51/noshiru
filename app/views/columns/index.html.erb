@@ -7,10 +7,12 @@
             <%= render 'column_bookmarks/column_bookmark_button', column: column %>
             <%= link_to column_path(column) do %>
               <div class="text-3xl text-white text-center"><%= column.title %></div>
-              <div class="w-full relative overflow-hidden">
-                <%= image_tag "#{column.thumbnail}", class: "w-full h-full object-cover" %>
-              </div>
             <% end %>
+            <div class="w-full relative overflow-hidden">
+              <%= link_to column_path(column) do %>
+                <%= image_tag "#{column.thumbnail}", class: "w-full h-full object-cover" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

@@ -8,10 +8,12 @@
               <%= render 'noshi_bookmarks/noshi_bookmark_button', noshi: noshi %>
               <%= link_to noshi_path(noshi) do %>
                 <div class="text-3xl text-white text-center"><%= noshi.label %></div>
-                <div class="w-full relative z-19">
-                  <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
-                </div>
               <% end %>
+              <div class="w-full relative z-19">
+                <%= link_to noshi_path(noshi) do %>
+                  <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
