@@ -5,7 +5,7 @@
       <%= link_to noshi_noshi_bookmark_path(noshi),
                 data: { turbo_method: :delete, turbo_stream: true },
                 class: "inline-block" do %>
-        <span class="cursor-pointer hover:scale-110 w-[10]px h-[10]px">
+        <span class="cursor-pointer hover:scale-110 w-[10px] h-[10px]">
           <%= image_tag 'usamark2.png' %>
         </span>
       <% end %>
@@ -13,7 +13,7 @@
       <%= link_to noshi_noshi_bookmark_path(noshi),
                 data: { turbo_method: :post, turbo_stream: true },
                 class: "inline-block" do %>
-        <span class="cursor-pointer hover:scale-110 w-[10px] h-[10]px">
+        <span class="cursor-pointer hover:scale-110 w-[10px] h-[10px]">
           <%= image_tag 'usamark1.png' %>
         </span>
       <% end %>
@@ -21,7 +21,7 @@
   </div>
 <% else %>
   <%= form_with url: '/auth/google_oauth2', method: :post, data: { turbo: false } do %>
-    <button class="cursor-pointer hover:scale-110 w-[10]px h-[10]px">
+    <button class="cursor-pointer hover:scale-110 w-[10px] h-[10px]">
       <%= image_tag 'usamark1.png' %>
     </button>
   <% end %>
