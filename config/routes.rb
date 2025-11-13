@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/login', to: 'sessions#login', as: :login
   get '/logout', to: 'sessions#destroy'
+  get 'contact', to: 'pages#contact'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   root 'tops#top'
 
   resources :noshis, only: %i[index show] do
-    resource :noshi_bookmarks, only: %i[create show destroy]
+    resource :noshi_bookmark, only: %i[create show destroy]
     collection do
       get :bookmarks, to: 'noshi_bookmarks#show'
       get :require_login, to: 'noshi_bookmarks#require_login'
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
   end
 
   resources :columns, only: %i[index show] do
-    resource :column_bookmarks, only: %i[create show destroy]
+    resource :column_bookmark, only: %i[create show destroy]
     collection do
       get :bookmarks, to: 'column_bookmarks#show'
       get :require_login, to: 'column_bookmarks#require_login'

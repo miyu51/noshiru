@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "bookmark-button-for-column-#{@column.id}" do %>
+  <%= render partial: "column_bookmarks/column_bookmark_button", formats: [:html], locals: { column: @column } %>
+<% end %>

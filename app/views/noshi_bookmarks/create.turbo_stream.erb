@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "bookmark-button-for-noshi-#{@noshi.id}" do %>
+  <%= render partial: "noshi_bookmarks/noshi_bookmark_button", formats: [:html], locals: { noshi: @noshi } %>
+<% end %>

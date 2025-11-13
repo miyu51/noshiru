@@ -9,11 +9,17 @@
       <% @noshis.each do |noshi| %>
         <div id="noshi-id-<%= noshi.id %>" class="shadow rounded overflow-hidden w-full">
           <div class="p-6 flex flex-col space-y-10">
-            <%= render 'noshi_bookmarks/noshi_bookmark_button', noshi: noshi %>
-            <%= link_to noshi_path(noshi) do %>
-              <div class="text-3xl text-white text-center"><%= noshi.label %></div>
-              <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
-            <% end %>
+            <div class="flex flex-row items-center justify-between">
+              <%= render partial: 'noshi_bookmarks/noshi_bookmark_button', locals: { noshi: noshi } %>
+              <%= link_to noshi_path(noshi) do %>
+                <div class="text-3xl text-white"><%= noshi.label %></div>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to noshi_path(noshi) do %>
+                <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
@@ -31,9 +37,13 @@
         <% @noshis.each do |noshi| %>
           <div id="noshi-id-<%= noshi.id %>" class="shadow rounded overflow-hidden w-full">
             <div class="p-6 flex flex-col space-y-10">
-              <%= render 'noshi_bookmarks/noshi_bookmark_button', noshi: noshi %>
+              <div class="flex flex-row items-center justify-between">
+                <%= render partial: 'noshi_bookmarks/noshi_bookmark_button', locals: { noshi: noshi } %>
+                <%= link_to noshi_path(noshi) do %>
+                  <div class="text-3xl text-white"><%= noshi.label %></div>
+                <% end %>
+              </div>
               <%= link_to noshi_path(noshi) do %>
-                <div class="text-3xl text-white text-center"><%= noshi.label %></div>
                 <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
               <% end %>
             </div>
@@ -58,12 +68,14 @@
           <div id="noshi-id-<%= noshi.id %>" class="shadow rounded overflow-hidden w-full">
             <div class="flex flex-col">
               <div class="p-6 flex flex-col space-y-10">
-                <%= render 'noshi_bookmarks/noshi_bookmark_button', noshi: noshi %>
+                <div class="flex flex-row items-center justify-between">
+                  <%= render partial: 'noshi_bookmarks/noshi_bookmark_button', locals: { noshi: noshi } %>
+                  <%= link_to noshi_path(noshi) do %>
+                    <div class="text-3xl text-white"><%= noshi.label %></div>
+                  <% end %>
+                </div>
                 <%= link_to noshi_path(noshi) do %>
-                  <div class="text-3xl text-white text-center"><%= noshi.label %></div>
-                  <div class="w-full relative z-19">
-                    <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
-                  </div>
+                  <%= image_tag noshi.image, class: "w-full h-auto object-cover" %>
                 <% end %>
               </div>
             </div>

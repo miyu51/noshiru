@@ -1,8 +1,8 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
-//= require jquery
-//= require slick.min
+import Rails from "@rails/ujs"
+Rails.start()
 
 document.addEventListener("turbo:load", function () {
   const menuBar = document.getElementById("menu-bar");
@@ -35,27 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('turbo:load', () => {
-  if (document.querySelector('.ql-toolbar')) {
-    return;
-  }
+  if (document.querySelector('#editor') && !document.querySelector('.ql-container')) {
 
-  const quill = new Quill('#editor', {
-    theme: 'snow',
-    placeholder: 'ここにコラムを書く。',
-    modules: {
-      toolbar: '#toolbar-container'
-    }
-  });
+    const quill = new Quill('#editor', {
+      theme: 'snow',
+      placeholder: 'ここにコラムを書く。',
+      modules: {
+        toolbar: '#toolbar-container'
+      }
+    });
 
-  const hiddenInput = document.querySelector('input[name="column[text]"]');
+    const hiddenInput = document.querySelector('input[name="column[text]"]');
 
-  quill.on('text-change', () => {
-    hiddenInput.value = quill.root.innerHTML;
-  });
+    quill.on('text-change', () => {
+      hiddenInput.value = quill.root.innerHTML;
+    });
 
-  const form = document.querySelector("form");
+    const form = document.querySelector("form");
 
-  form.addEventListener("submit", () => {
-    hiddenInput.value = quill.root.innerHTML;
-  });
+    form.addEventListener("submit", () => {
+      hiddenInput.value = quill.root.innerHTML;
+    });
+  };
 });

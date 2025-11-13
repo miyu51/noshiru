@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "quill", to: "https://cdn.skypack.dev/quill"
 pin "jquery" # @3.7.1
 pin "slick-carousel", to: "https://cdn.skypack.dev/slick-carousel@1.8.1"
+pin "@rails/ujs", to: "rails-ujs.js"

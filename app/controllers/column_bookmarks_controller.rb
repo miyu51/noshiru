@@ -5,13 +5,7 @@ class ColumnBookmarksController < ApplicationController
     @column = Column.find(params[:column_id])
     current_user.column_bookmark(@column)
     respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          "bookmark-button-for-column-#{@column.id}",
-          partial: "column_bookmarks/column_bookmark_button",
-          locals: {column: @column }
-        )
-      end
+      format.turbo_stream
     end
   end
 
@@ -23,13 +17,7 @@ class ColumnBookmarksController < ApplicationController
     @column = Column.find(params[:column_id])
     current_user.column_unbookmark(@column)
     respond_to do |format|
-      format.turbo_stream do
-      render turbo_stream: turbo_stream.replace(
-        "bookmark-button-for-column-#{@column.id}",
-        partial: "column_bookmarks/column_bookmark_button",
-        locals: { column: @column }
-      )
-      end
+      format.turbo_stream
     end
   end
 end

@@ -1,5 +1,5 @@
 class Admin::ColumnsController < Admin::BaseController
-  before_action :authenticate_user!
+  before_action :require_login
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_column, only: [:show, :edit, :update, :destroy]
 
