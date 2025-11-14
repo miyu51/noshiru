@@ -70,6 +70,6 @@ gem "prawn"
 gem "jquery-rails"
 gem 'rails-i18n'
 gem 'inline_svg'
-gem 'aws-sdk-s3', '~> 1.190.0'
+gem 'aws-sdk-s3', '~> 1.203.0'
 gem 'slick_rails'
 gem "resend"
