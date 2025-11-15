@@ -1,3 +1,7 @@
+<% content_for :og_title, @column.title %>
+<% content_for :og_description, @column.summary %>
+<% content_for :og_image, image_url(@column.thumbnail || "default_ogp.png") %>
+
 <div class="container mx-auto max-w-4xl px-4 py-8">
   <div class="text-center mb-8">
     <small class="text-blue-100 text-sm">
