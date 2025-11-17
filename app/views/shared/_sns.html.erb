@@ -1,0 +1,11 @@
+<div class="mt-12 pt-6 pb-8">
+  <div class="flex justify-center gap-6">
+    <%= link_to "https://twitter.com/intent/tweet?url=#{CGI.escape(request.original_url)}&text=#{CGI.escape('のし紙を選ぶなら、うさぎ印🐰のNoshiruをぜひお試しください!!地域差なくどこでも通用する万能型のし検索アプリです🎀')}&hashtags=#{CGI.escape('のし検索,熨斗,うさぎ印,Noshiru')}", target: "_blank", rel: "noopener noreferrer" do %>
+      <%= image_tag "x-logo", alt: "Twitterで共有", class: "w-20 h-20 opacity-80 hover:opacity-100 transition-opacity" %>
+    <% end %>
+
+    <%= link_to "https://social-plugins.line.me/lineit/share?url=#{CGI.escape(request.original_url)}", target: "_blank", rel: "noopener noreferrer" do %>
+      <%= image_tag "line-logo", alt: "LINEで共有", class: "w-20 h-20 opacity-80 hover:opacity-100 transition-opacity" %>
+    <% end %>
+  </div>
+</div>
