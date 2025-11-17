@@ -1,13 +1,13 @@
 <footer class="mt-20">
   <ul class="relative flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-10 text-sm">
-    <%= link_to 'トップページ', root_path, class: "hover:text-yellow-300 text-white" %>
+    <li class="hover:text-yellow-300 text-white"><%= link_to 'トップページ', root_path %></li>
     <li class="hover:text-yellow-300 text-white">Noshiruについて</li>
     <li class="hover:text-yellow-300 text-white">お知らせ</li>
     <li class="hover:text-yellow-300 text-white"><%= link_to 'コラム', columns_path %></li>
     <li class="hover:text-yellow-300 text-white">サイトポリシー</li>
     <li class="hover:text-yellow-300 text-white">プライドポリシー</li>
-    <%= link_to '参考文献', references_path, class: "hover:text-yellow-300 text-white" %>
-    <li class="hover:text-yellow-300 text-white">お問い合わせ</li>
+    <li class="hover:text-yellow-300 text-white"><%= link_to '参考文献', references_path %></li>
+    <li class="hover:text-yellow-300 text-white"><%= link_to 'お問い合わせ', contact_path %></li>
   </ul>
   <p class="py-5 text-center mt-10 text-white">© 2025 Noshiru</p>
 </footer>
