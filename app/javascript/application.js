@@ -1,6 +1,10 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+console.log("読み込まれた")
 
 document.addEventListener("turbo:load", function () {
   const menuBar = document.getElementById("menu-bar");
@@ -26,10 +30,6 @@ document.addEventListener("turbo:load", function () {
       arrows: true,
     });
   }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-
 });
 
 document.addEventListener('turbo:load', () => {
