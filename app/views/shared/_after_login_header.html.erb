@@ -12,7 +12,7 @@
 
     <!-- 中央：リンク集（中画面以上で表示） -->
     <ul class="hidden md:flex space-x-6 text-white text-2xl text-center">
-      <li class="animoBorderLeftRight cursor-pointer">Noshiruについて</li>
+      <li class="animoBorderLeftRight cursor-pointer"><%= link_to 'Noshiruについて', introduction_path %></li>
       <li class="animoBorderLeftRight cursor-pointer"><%= link_to 'コラム', columns_path %></li>
       <li class="animoBorderLeftRight cursor-pointer">熨斗紙テンプレート</li>
       <li class="animoBorderLeftRight cursor-pointer">
@@ -22,7 +22,7 @@
       </li>
     </ul>
 
-    <div class="flex items-center justify-end space-x-4 text-red-500 text-5xl">
+    <div class="hidden md:flex items-center justify-end space-x-4 text-red-500 text-5xl">
       <!-- 右側：矢印アイコン -->
       <%= link_to my_page_path do %>
         <%= image_tag 'my-page-rabbit.png', class: "hover:scale-105 w-20 h-20 md:w-30 md:h-30" %>
@@ -30,20 +30,21 @@
     </div>
     <div class="md:hidden" id="navArea">
       <!-- 右側：メニューアイコン（三本線） -->
-      <div class="toggle_btn text-5xl cursor-pointer text-white">
+      <div class="toggle_btn cursor-pointer text-white">
         <span></span>
         <span></span>
         <span></span>
       </div>
       <nav>
-        <div class="inner flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg">
+        <div class="inner flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg text-center">
           <ul>
-            <li class="cursor-pointer block w-full">Noshiruについて</li>
-            <li class="cursor-pointer"><%= link_to 'コラム', columns_path, class: "block w-full" %></li>
-            <li class="cursor-pointer block w-full">熨斗紙テンプレート</li>
-            <li class="cursor-pointer">
+            <li class="cursor-pointer block w-full"><%= link_to 'Noshiruについて', introduction_path %></li>
+            <li class="cursor-pointer block w-full"><%= link_to 'コラム', columns_path %></li>
+            <li class="cursor-pointer block w-full"><%= link_to '熨斗紙テンプレート', '#' %></li>
+            <li class="cursor-pointer block w-full"><%= link_to 'マイページ', my_page_path %></li>
+            <li class="cursor-pointer block w-full">
               <%= form_with url: logout_path, method: :get do %>
-                <%= submit_tag "ログアウト", class: "cursor-pointer block w-full" %>
+                <%= submit_tag "ログアウト", class: "cursor-pointer" %>
               <% end %>
             </li>
           </ul>
