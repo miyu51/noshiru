@@ -1,23 +1,25 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
-console.log("読み込まれた")
-
-document.addEventListener("turbo:load", function () {
-  const menuBar = document.getElementById("menu-bar");
-  const menu = document.getElementById("menu");
-  if (menuBar && menu && !menuBar.dataset.listenerAttached) {
-  menuBar.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-    menu.classList.toggle("opacity-0");
-    menu.classList.toggle("opacity-100");
+(function($) {
+  var $nav   = $('#navArea');
+  var $btn   = $('.toggle_btn');
+  var $mask  = $('#mask');
+  var open   = 'open'; // class
+  // menu open close
+  $btn.on( 'click', function() {
+    if ( ! $nav.hasClass( open ) ) {
+      $nav.addClass( open );
+    } else {
+      $nav.removeClass( open );
+    }
   });
-  menuBar.dataset.listenerAttached = "true";
-  }
-});
+  // mask close
+  $mask.on('click', function() {
+    $nav.removeClass( open );
+  });
+} )(jQuery);
 
 document.addEventListener("turbo:load", function () {
   const slide = document.querySelector(".slide-items");
@@ -55,4 +57,20 @@ document.addEventListener('turbo:load', () => {
       hiddenInput.value = quill.root.innerHTML;
     });
   };
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const targets = document.querySelectorAll(".fade-up, .slide-in-left");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        // 一度だけ発火させたい場合は以下を追加
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 }); // 20%見えたら発火
+
+  targets.forEach(target => observer.observe(target));
 });
