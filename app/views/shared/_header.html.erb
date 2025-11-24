@@ -39,16 +39,24 @@
           </button>
         <% end %>
       </div>
-
-      <div class="md:hidden">
-        <!-- 右側：メニューアイコン（三本線） -->
-        <button id="menu-bar" class="text-5xl cursor-pointer text-white hover:text-yellow-300 transition-colors duration-300">&#9776;</button>
-        <ul id="menu" class="hidden flex flex-col space-y-4 mt-4 text-lg text-white opacity-0 transition-opacity duration-500 ease-in-out">
-          <li class="hover:underline cursor-pointer text-white">Noshiruについて</li>
-          <li class="hover:underline cursor-pointer text-white"><%= link_to 'コラム', columns_path %></li>
-          <li class="hover:underline cursor-pointer text-white">熨斗紙テンプレート</li>
-        </ul>
+    </div>
+    <div class="md:hidden" id="navArea">
+      <!-- 右側：メニューアイコン（三本線） -->
+      <div class="toggle_btn text-5xl cursor-pointer text-white">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+      <nav>
+        <div class="inner flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg">
+          <ul>
+            <li class="cursor-pointer block w-full">Noshiruについて</li>
+            <li class="cursor-pointer"><%= link_to 'コラム', columns_path, class: "block w-full" %></li>
+            <li class="cursor-pointer block w-full">熨斗紙テンプレート</li>
+          </ul>
+        </div>
+      </nav>
+      <div id="mask"></div>
     </div>
   </div>
 </header>
