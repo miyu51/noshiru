@@ -209,7 +209,6 @@ nav .inner ul {
 nav .inner ul li {
   position: relative;
   margin: 0;
-  border-bottom: 1px solid #333;
 }
 nav .inner ul li a {
   display: block;
@@ -219,9 +218,7 @@ nav .inner ul li a {
   text-decoration: none;
   transition-duration: 0.2s;
 }
-nav .inner ul li a:hover {
-  background: #e4e4e4;
-}
+
 @media screen and (max-width: 767px) {
   nav {
     left: -220px;

@@ -38,11 +38,11 @@
       <nav>
         <div class="inner flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg text-center">
           <ul>
-            <li class="cursor-pointer block w-full"><%= link_to 'Noshiruについて', introduction_path %></li>
-            <li class="cursor-pointer block w-full"><%= link_to 'コラム', columns_path %></li>
-            <li class="cursor-pointer block w-full"><%= link_to '熨斗紙テンプレート', '#' %></li>
-            <li class="cursor-pointer block w-full"><%= link_to 'マイページ', my_page_path %></li>
-            <li class="cursor-pointer block w-full">
+            <li class="cursor-pointer block w-full animoBorderLeftRight"><%= link_to 'Noshiruについて', introduction_path %></li>
+            <li class="cursor-pointer block w-full animoBorderLeftRight"><%= link_to 'コラム', columns_path %></li>
+            <li class="cursor-pointer block w-full animoBorderLeftRight"><%= link_to '熨斗紙テンプレート', '#' %></li>
+            <li class="cursor-pointer block w-full animoBorderLeftRight"><%= link_to 'マイページ', my_page_path %></li>
+            <li class="cursor-pointer block w-full animoBorderLeftRight">
               <%= form_with url: logout_path, method: :get do %>
                 <%= submit_tag "ログアウト", class: "cursor-pointer" %>
               <% end %>
