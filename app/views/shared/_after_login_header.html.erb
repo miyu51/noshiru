@@ -1,5 +1,5 @@
 <header class="mt-10 left-0 w-full z-40">
-  <div class="flex items-center justify-between w-full px-4">
+  < class="flex items-center justify-between w-full px-4">
 
     <!-- 左側：ロゴとキャッチコピー -->
     <div class="flex flex-col">
@@ -12,12 +12,12 @@
 
     <!-- 中央：リンク集（中画面以上で表示） -->
     <ul class="hidden md:flex space-x-6 text-white text-2xl text-center">
-      <li class="hover:underline cursor-pointer">Noshiruについて</li>
-      <li class="hover:underline cursor-pointer"><%= link_to 'コラム', columns_path %></li>
-      <li class="hover:underline cursor-pointer">熨斗紙テンプレート</li>
-      <li class="hover:underline cursor-pointer">
+      <li class="animoBorderLeftRight cursor-pointer">Noshiruについて</li>
+      <li class="animoBorderLeftRight cursor-pointer"><%= link_to 'コラム', columns_path %></li>
+      <li class="animoBorderLeftRight cursor-pointer">熨斗紙テンプレート</li>
+      <li class="animoBorderLeftRight cursor-pointer">
         <%= form_with url: logout_path, method: :get do %>
-          <%= submit_tag "ログアウト", class: "hover:underline cursor-pointer" %>
+          <%= submit_tag "ログアウト", class: "animoBorderLeftRight cursor-pointer" %>
         <% end %>
       </li>
     </ul>
@@ -27,26 +27,25 @@
       <%= link_to my_page_path do %>
         <%= image_tag 'my-page-rabbit.png', class: "hover:scale-105 w-20 h-20 md:w-30 md:h-30" %>
       <% end %>
-
-      <div class="md:hidden" id="navArea">
-        <!-- 右側：メニューアイコン（三本線） -->
-        <button class="toggle_btn text-5xl cursor-pointer text-white hover:text-yellow-300 transition-colors duration-300">&#9776;</button>
-        <nav>
-          <div class="inner flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg">
-            <ul>
-              <li class="hover:underline cursor-pointer">Noshiruについて</li>
-              <li class="hover:underline cursor-pointer"><%= link_to 'コラム', columns_path %></li>
-              <li class="hover:underline cursor-pointer">熨斗紙テンプレート</li>
-              <li class="hover:underline cursor-pointer">
-                <%= form_with url: logout_path, method: :get do %>
-                  <%= submit_tag "ログアウト", class: "hover:underline cursor-pointer" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div id="mask"></div>
-      </div>
+    </div>
+    <div class="md:hidden" id="navArea">
+      <!-- 右側：メニューアイコン（三本線） -->
+      <button class="toggle_btn text-5xl cursor-pointer text-white">&#9776;</button>
+      <nav>
+        <div class="inner flex flex-col space-y-4 mt-4 text-lg text-zinc-700 px-4 py-4 rounded-lg">
+          <ul>
+            <li class="cursor-pointer block w-full">Noshiruについて</li>
+            <li class="cursor-pointer"><%= link_to 'コラム', columns_path, class: "block w-full" %></li>
+            <li class="cursor-pointer block w-full">熨斗紙テンプレート</li>
+            <li class="cursor-pointer">
+              <%= form_with url: logout_path, method: :get do %>
+                <%= submit_tag "ログアウト", class: "cursor-pointer block w-full" %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div id="mask"></div>
     </div>
   </div>
 </header>
