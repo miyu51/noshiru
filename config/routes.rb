@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get 'contact', to: 'pages#contact'
   get 'introduction', to: 'pages#introduction'
+  get 'terms_of_use', to: 'pages#terms_of_use'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
