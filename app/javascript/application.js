@@ -2,11 +2,11 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-(function($) {
-  var $nav   = $('#navArea');
-  var $btn   = $('.toggle_btn');
-  var $mask  = $('#mask');
-  var open   = 'open'; // class
+document.addEventListener("turbo:load", function($) {
+  var $nav = $('#navArea');
+  var $btn = $('.toggle_btn');
+  var $mask = $('#mask');
+  var open = 'open'; // class
   // menu open close
   $btn.on( 'click', function() {
     if ( ! $nav.hasClass( open ) ) {
@@ -19,7 +19,7 @@ import "controllers"
   $mask.on('click', function() {
     $nav.removeClass( open );
   });
-} )(jQuery);
+})(jQuery);
 
 document.addEventListener("turbo:load", function () {
   const slide = document.querySelector(".slide-items");
